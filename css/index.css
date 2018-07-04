@@ -1,3 +1,10 @@
+.item-share-box{
+    text-align: center;
+    color: #fff;
+    background-color: coral;
+    font-size: 0.3rem;
+    line-height: 1rem;
+}
 .item-btn{}
 .item-btn .btn{
     font-size: 0.3rem;
