@@ -1,0 +1,10 @@
+.item-btn{}
+.item-btn .btn{
+    font-size: 0.3rem;
+    line-height: 1rem;
+    height: 1rem;
+    text-align: center;
+    color:#fff;
+}
+.item-btn .btn-login{background-color: green}
+.item-btn .btn-client{background-color: blue}
