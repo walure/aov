@@ -11,14 +11,20 @@
     <meta name="author" content="Tencent-CP" />
     <meta name="Copyright" content="Tencent" />
 
-    <meta property="og:image" content="test/test.jpg" /> 
-    <meta property="og:description" content="测试的内容了" /> 
-    <meta property="og:url" content="www.baidu.com" /> 
+    <meta property="og:url"           content="http://chuoquan.com/aov" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="http://chuoquan.com/style/images/banner.jpg" />
+
+
+
     
     <title>aov</title>
     <link rel="stylesheet" href="css/common.css" type="text/css" />
     <link rel="stylesheet" href="css/index.css" type="text/css" />
     <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script> 
+    
     <script>
         (function (win, doc) {
             if (!win.addEventListener) return;
@@ -50,10 +56,11 @@
         <div class="item-btn">
             <div class="btn-login btn" id="login">点击登录您的AOV账号</div>
             <div class="btn-client btn" id="client">进入AOV</div>
+            <div id="js-copy" class="js-copy" data-clipboard-text="我是被复制的内容啊">复制链接</div>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
-
+<script src="js/clipboard.min.js"></script> 
 <script src="js/index.js"></script>
 </html>

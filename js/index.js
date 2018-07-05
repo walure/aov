@@ -6,7 +6,11 @@ function isMobile() {
 }
 
  var facebookObj ={
+     setShareData:function(){
+
+     },
      init:function(id){
+        this.setShareData()
         this.FB='';
         var that = this;
         this.load(function(){
@@ -15,43 +19,43 @@ function isMobile() {
      },
      load:function(callback){
          var that = this;
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        document.getElementById('facebook-jssdk').onload=function(){
-            console.log('loading完成')
-            that.FB = FB
+         window.fbAsyncInit = function() {
             FB.init({
-                appId: '1019196208221081',
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v2.10'
+              appId      : '333894633812906',
+              xfbml      : true,
+              version    : 'v3.0'
             });
             FB.AppEvents.logPageView();
+          };
+        
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        document.getElementById('facebook-jssdk').onload=function(){
+            console.log('loading完成')
             callback()
         }
      },
      FBshare(shareURL) {
-        this.FB.ui({
-            method: 'share',
-            href: "http://www.baidu.com" //这里换成你的网址
-          }, function(response){
-            //分享回调
-          })
+        var curHref = window.location.href;
+        var tmpShareUrl =  curHref + ((curHref.indexOf('?') != -1) ? "&fbShareSucc=1" : '?fbShareSucc=1');
+
+        var fbUrl = "https://www.facebook.com/dialog/feed?" +
+            "app_id=333894633812906&display=touch" +
+            "&link=" + encodeURIComponent(shareURL) +
+            "&redirect_uri=" + encodeURIComponent(tmpShareUrl);
+            location.href = fbUrl;
     },
      fevents:function(id){
          var that = this;
         $(id).click(function(){
             console.log(999)
             console.log(FB)
-            that.FBshare(location.href);
+            that.FBshare("http://chuoquan.com/aov");
         })
      }
  }
@@ -74,3 +78,17 @@ $('#client').click(function(){
         window.location.href = "https://www.arenaofvalor.com/"
     }
 })
+
+
+var btn = document.getElementById('js-copy');
+var clipboard = new Clipboard(btn);//实例化
+
+//复制成功执行的回调，可选
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+
+//复制失败执行的回调，可选
+clipboard.on('error', function(e) {
+    console.log(e);
+});
