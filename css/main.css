@@ -1,0 +1,250 @@
+body{overflow: hidden; overflow-y: auto}
+.warp{
+    background: url('../image/info-bg/3.jpg') repeat-y;
+    background-size: 100% ;
+    width: 100%;
+    position: relative;
+    overflow-y: scroll;
+}
+.warp .bg{
+    width: 100%;
+
+    top: 0;
+}
+.warp .bg img{
+    width: 100%;
+    display: block
+}
+
+.warp .content{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top:0;
+}
+.content .user-name{
+    min-width: 3.5rem;
+    display: inline-block;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    color: #fff;
+    font-size: 0.42rem;
+    padding-left:0.3rem;
+    position: relative;
+    margin-left:0.6rem;
+    margin-top:0.5rem;
+    text-shadow: 0 0 0.2rem  #9ca083;
+}
+.content .user-name::before{
+    content: '';
+    display: block;
+    width: 3.5rem;
+    height: 0.8rem;
+    background: url('../image/name-bg.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.c-t,.c-t-1{
+    font-size: 0.24rem;
+    position: relative; 
+  
+}
+.c-t::before{
+    content: '';
+    display: inline-block;
+    width: 0.1rem;
+    height: 0.1rem;
+    background: url('../image/dian.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 0.15rem;
+    left: -0.2rem;
+   
+}
+.c-t::after,.c-t-1::after {  
+    content: attr(data-text);
+    color: #ffdb8a;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    text-shadow: 0.02rem 0.02rem 0.01rem #363636;
+    -webkit-mask-image: -webkit-gradient(linear, 1 0, 0 bottom, from(#fffbf3), to(rgba(208, 169, 98, 0.15)));   
+}
+.c-c{
+    color: #3fe4e3;
+    font-size: 0.32rem;
+    font-family: "微软雅黑 Light"
+}
+/* 玩家信息 */
+.content  .paly-info{
+    margin-left:0.8rem;
+    margin-top: 0.6rem;
+}
+.paly-info li{margin-bottom: 0.2rem}
+.paly-info li .title{margin-bottom: 0.05rem}
+.paly-info .ico{}
+.paly-info .ico img{width:1.6rem }
+
+.paly-info .list-box {display: flex; text-align: center;    margin-left: -0.3rem;}
+.paly-info .item {margin-left: 0.5rem}
+.paly-info .item:first-child {margin-left:0}
+.paly-info .item p:nth-child(2){margin-top:-0.1rem}
+
+.paly-info .item .ico img{width: 1.5rem}
+
+
+/* 常用英雄 */
+.common-hero{ margin-top:1rem}
+.common-hero .title{
+    font-size: 0.46rem; font-weight: bold; text-align: center;
+    background: url('../image/title-line.png') no-repeat bottom;
+    background-size: 100%;
+    padding-bottom: 0.4rem;
+}
+.common-hero .list{ }
+.common-hero .list li{
+    margin: 0.2rem 0.6rem
+}
+.common-hero .list li {display: flex;
+    border-bottom:  1px solid rgba(139, 113, 63, 0.35); 
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+}
+.common-hero .list li:last-child{border:none}
+.common-hero .list li .hero-img img{width:2rem }
+.common-hero .list li .use-info{margin-left: 0.4rem}
+.common-hero .list li .use-info .name{font-size: 0.36rem;
+border-bottom:  1px solid rgba(204, 204, 204, 0.09);
+margin-bottom: 0.2rem;
+}
+.common-hero .list li .use-info .txt{margin-bottom: 0.16rem}
+.common-hero .list li .use-info .txt span{ display: inline-block;font-size: 0.24rem}
+.common-hero .list li .use-info .txt span:nth-child(2){ margin-left: 0.2rem; font-size: 0.3rem}
+.common-hero .list li .use-info .txt .ico-s{position: relative;
+padding-left: 0.4rem;
+margin-left: 0.5rem !important;
+}
+.common-hero .list li .use-info .txt .ico-s::after{
+    top: 0.04rem;
+    left:0;
+    position: absolute;
+    content: '';
+    display: block;
+    width: 1.7rem;
+    height: 0.46rem;
+    background: url('../image/battle-honor-bg.png') no-repeat; background-size: 100%
+}
+.common-hero .list li .use-info .txt .ico-s::before{
+    content: '';
+    width: 0.8rem;
+    height: 0.8rem;
+    top: -0.1rem;
+    left: -0.4rem;
+    position: absolute;
+}
+ .ico-s.s1::before{
+    top: -0.14rem !important;
+    background: url('../image/proficiency/HeroProficiency_Level_1.png') no-repeat; background-size: 100%
+} 
+.ico-s.s2::before{
+    top: -0.14rem !important;
+    background: url('../image/proficiency/HeroProficiency_Level_2.png') no-repeat; background-size: 100%
+} 
+.ico-s.s3::before{
+    background: url('../image/proficiency/HeroProficiency_Level_3.png') no-repeat; background-size: 100%
+} 
+.ico-s.s4::before{
+    background: url('../image/proficiency/HeroProficiency_Level_4.png') no-repeat; background-size: 100%
+} 
+.ico-s.s5::before{
+    background: url('../image/proficiency/HeroProficiency_Level_5.png') no-repeat; background-size: 100%
+} 
+
+/* 图表 */
+
+.chart-box{ margin-top: 1rem; width: 100%;}
+.chart-box .title{
+    background: url('../image/title-line.png') no-repeat bottom;
+    background-size: 100%;
+    width: 100%;
+    height: 0.5rem
+}
+.chart-box .chart{height: 4.6rem}
+
+.chart-box .chart-data{
+    width: 2.8rem; 
+    margin: auto;
+    display: flex;
+}
+.chart-box .chart-data div{
+    flex: 1;
+  
+}
+.chart-box .chart-data .fl{
+    text-align: right;
+    padding-right: 0.3rem
+}
+.chart-box .chart-data .fr{
+    padding-left: 0.3rem;
+    background:url('../image/line.png') no-repeat left;
+    background-size: auto 100%;
+}
+
+
+/* 点赞登陆分享  */
+
+.user-box{
+    margin-top: 2.1rem;
+  
+}
+.user-box .hidden{display: none}
+.user-box .no-user{
+ text-align: center;
+ overflow: hidden;
+ padding-bottom: 0.3rem;
+ background: url('../image/bg-1.png') repeat-x bottom;
+ border-bottom: 1px solid rgba(139, 113, 63, 0.35);
+}
+.no-user .desc{}
+.no-user .desc span{ display: inline-block; font-size: 0.3rem;}
+.no-user .desc .c{ color: #fff; font-size: 0.46rem}
+.no-user  .mt45{margin-top:0.45rem}
+.no-user .tip{color: #c6b9a1; font-size: 0.22rem;margin-top:0.2rem}
+.no-user  .w60{width: 75%; margin:0.4rem auto}
+/* 当前用户登陆 */
+.user-box .curr-user{
+    text-align: center;
+}
+.user-box .curr-user .title{font-size: 0.34rem}
+.user-box .curr-user .desc{color:#c6b9a1; font-size: 0.24rem; margin:0.3rem 10% 0.6rem;overflow: hidden}
+.user-box .curr-user .btn-group {
+
+    width: 90%;
+    margin: auto
+}
+.user-box .curr-user .zan-tip{color:#c6b9a1; font-size: 0.28rem;margin-top:0.4rem }
+.user-box .curr-user .zan-tip span{color:#fff; font-size: 0.36rem;  }
+
+/* 其他用户  */
+.other-user {
+    
+    text-align: center;
+    padding-top: 0.6rem;
+    background: url('../image/bg-1.png') repeat-x bottom;
+    border-bottom: 1px solid rgba(139, 113, 63, 0.35);
+}
+.other-user .mt40{margin-top:0.4rem}
+.other-user .btn-group{width: 80%; margin:0.7rem auto}
+
+
+/* logo-box */
+.logo-box{display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 2.2rem;
+}
+.logo-box img:nth-child(1){width: 1.1rem}
+.logo-box img:nth-child(2){width: 2.18rem; margin-left: 0.6rem}

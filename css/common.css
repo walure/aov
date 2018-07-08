@@ -7,5 +7,169 @@ a, img {-webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 
 html, body {
     -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
     user-select: none;
+    font-family: '微软雅黑';
 }
 html{font-size:100px;}
+.flex{display: flex}
+.btn{
+    height: 0.48rem;
+    line-height: 0.48rem;
+    text-align: center;
+    font-size: 0.24rem;
+    min-width: 2rem;
+    display: inline-block;
+    position: relative;
+}
+
+.btn.yellow{
+    background-color: #ffd200;
+    min-width: 2.2rem;
+    color: #2d2105
+}
+.btn.brown{
+    background-color: #bda57c;
+    color: #221705;
+    min-width: 2.2rem;
+}
+.btn .out div,.btn .out {
+    border:1px solid rgba(189,165,124,0.2);
+}
+.btn.beep-blue{
+     min-width: 2.2rem;
+      background-color: #c9e0e7;
+      color: #315864
+  }
+  .btn.deep-blue{
+    min-width: 1.8rem;
+     background-color: #125971;
+     color: #fff
+ }
+
+.btn .out{
+    background: none;
+    position: absolute;
+    width: 100%; height: 100%;
+    padding: 0.05rem 0.1rem;
+    left: -0.125rem;
+    top: -0.06rem;
+    
+}
+.btn .out div{
+    width: 100%; height: 100%;
+    padding: 0.1rem 0.05rem;
+    margin-left: -0.05rem;
+    margin-top: -0.1rem;
+}
+.btn .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.48rem;
+
+}
+.btn .text i{
+    font-style: normal;
+    display: inline-block; 
+    position: relative;
+    margin-left: -0.2rem;
+  
+}
+.btn-group{text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-group .btn{ }
+.icon{
+    display: inline-block;
+    background-image: url(../image/icon.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 0.88rem;
+    height: 0.88rem !important;
+    transform: scale(0.5);
+    margin-left: -0.3rem!important;
+}
+.go{
+     background-position: 0 -0.78rem;
+}
+.go1{
+    background-position: 0 -2.3rem;
+}
+.down{
+    background-position: 0 -1.55rem;
+}
+.down1{
+    background-position: 0 -3rem;
+}
+.facebook{
+    background-position: 0 -3.9rem;
+}
+.garna{
+    background-position: 0 -4.85rem;
+}
+.copy{
+    background-position: 0 -5.7rem;
+}
+.fabulous{
+    background-position: 0 -6.45rem;
+}
+.see{
+    background-position: 0 -7.25rem;
+}
+.success{
+    background-position: 0 -8rem;
+}
+.refresh{
+    background-position: 0 -8.78rem;
+}
+
+
+
+
+/* 弹出层 */
+
+.dialog{
+    position: fixed;
+    z-index: 99;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.dialog .dia-con{
+    background: rgb(2,3,5);
+    border:1px solid rgba(132,131,110,0.45);
+    padding: 0.1rem;
+    width: 86%;
+    margin: auto;
+}
+.dialog .dia-con .dia-box{
+    border:1px solid #5c451e;
+    min-height: 3.85rem;
+    position: relative
+}
+.dialog .dia-con .dia-box .npc{
+    position: absolute;
+    width:2.49rem; 
+    left: -10%;
+    top:-30%;
+}
+.dialog .dia-con .dia-box .npc img{width: 100%}
+
+.dialog .dia-con .dia-box .desc{
+    text-align: center; color: #c6b9a1;
+    font-size: 0.24rem; margin-top: 1.2rem;
+}
+.dialog .dia-con .dia-box .btn-box{
+    position: absolute;
+    bottom: 0.5rem;
+    width: 100%;
+    text-align: center
+
+}
+.dialog .dia-close{position: absolute; right: -5%;top:-8%; width:0.45rem }
+.dialog .dia-close img{width: 100%;}
