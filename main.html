@@ -22,15 +22,29 @@
     <title>aov</title>
     <!-- 页面设计：gediao | 页面制作：walure | 创建：2018-07-08  -->
     <link rel="stylesheet" href="css/common.css" type="text/css" />
+    <link rel="stylesheet" href="css/loading.css" type="text/css" />
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-    <style>
-
-    </style>
+   
     
 
 </head>
 <body> 
-   <section class="warp">
+    <section id="loading">  
+            <div class="loading-box">
+                 <div id="casePourpre">
+                  <div id="loading-ico"><img src="image/loading.png"></div>
+                <div id="vague">
+                    <div id="vague-box" class="box"><div></div></div>
+                    <div class="box1"></div>
+                </div>
+                <div id="load" >
+                        0%
+                  </div>
+            </div>
+        </div>
+    </section> 
+
+   <section class="warp" id="content">
        <div class="bg">
            <img src="image/info-bg/1.jpg">
            <img src="image/info-bg/2.jpg">
@@ -140,7 +154,21 @@
             <!--  图表 -->
             <div class="chart-box">
                     <div class="title"  ></div>
-                <div class="chart"></div>
+                <div class="chart">
+
+                        <div class="detail_box c">
+                                <div class="detail_canvas">
+                                    <div id="main" class="detail_bg"></div>
+                                    <span class="detail_txt "><font class="language c-t-1" data-text="傷害">傷害</font></span>
+                                    <span class="detail_txt"><font class="language c-t-1" data-text="生存">生存</font></span>
+                                    <span class="detail_txt"><font class="language c-t-1" data-text="KDA">KDA</font></span>
+                                    <span class="detail_txt"><font class="language c-t-1" data-text="推进">推进</font></span>
+                                    <span class="detail_txt"><font class="language c-t-1" data-text="金幣/分鐘">金幣/分鐘</font></span>
+                                </div>
+                            </div
+
+
+                </div>
                 <div class="chart-data">
                     <div class="fl">
                         <p class="c-t-1" data-text="傷害">傷害</p>
@@ -215,7 +243,7 @@
                                     <i>分享</i>
                                 </div>
                             </div>
-                            <div class="btn deep-blue login-btn">
+                            <div  id="js-copy"  data-clipboard-text="我是被复制的内容啊" class="btn deep-blue login-btn">
                                     <div class="out"> <div></div></div>
                                     <div class="text">
                                         <i class="icon copy"></i>
@@ -300,11 +328,15 @@
 
    </section>
    
-        
-       
- 
+
     <script src="js/resize.js"></script> 
-    <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script> 
-</body>
+    <script src="js/loading.js"></script>
+   <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script> 
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
+   <script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+   <script src="js/clipboard.min.js"></script> 
+   <script src="js/index.js"></script>
+
+   </body>
 
 </html>

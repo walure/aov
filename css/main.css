@@ -1,4 +1,5 @@
 body{overflow: hidden; overflow-y: auto}
+#content{display: none}
 .warp{
     background: url('../image/info-bg/3.jpg') repeat-y;
     background-size: 100% ;
@@ -166,13 +167,27 @@ margin-left: 0.5rem !important;
 /* 图表 */
 
 .chart-box{ margin-top: 1rem; width: 100%;}
+
 .chart-box .title{
     background: url('../image/title-line.png') no-repeat bottom;
     background-size: 100%;
     width: 100%;
     height: 0.5rem
 }
-.chart-box .chart{height: 4.6rem}
+.chart-box .chart{height: 7.4rem}
+.detail_box{margin-top: 0.3rem}
+.detail_canvas{width:4.29rem;height:4.1rem;position:relative; margin: auto}
+.detail_bg{width:3.5rem;height:3.5rem;margin:0 auto 0;}
+.detail_txt{position:absolute;width:2.2rem;font-size:0.16rem;line-height:0.24rem;text-align:center;}
+.detail_txt:nth-of-type(1){left:50%;top:0rem;margin-left:-1.1rem;}
+.detail_txt:nth-of-type(2){left:-1.45rem;top:1.3rem;text-align:right;}
+.detail_txt:nth-of-type(3){left:0.1rem;top:3rem;}
+.detail_txt:nth-of-type(4){left:2rem;top:3rem;}
+.detail_txt:nth-of-type(5){left:3.6rem;top:1.3rem;text-align:left;width:1.7rem;}
+
+
+
+
 
 .chart-box .chart-data{
     width: 2.8rem; 
@@ -218,7 +233,7 @@ margin-left: 0.5rem !important;
 .user-box .curr-user{
     text-align: center;
 }
-.user-box .curr-user .title{font-size: 0.34rem}
+.user-box .curr-user .title{font-size: 0.34rem; background: none}
 .user-box .curr-user .desc{color:#c6b9a1; font-size: 0.24rem; margin:0.3rem 10% 0.6rem;overflow: hidden}
 .user-box .curr-user .btn-group {
 

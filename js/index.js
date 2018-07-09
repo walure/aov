@@ -60,7 +60,7 @@ function isMobile() {
      }
  }
 
- facebookObj.init('#shareFacebook')
+ //facebookObj.init('#shareFacebook')
 
 
 
@@ -92,3 +92,97 @@ clipboard.on('success', function(e) {
 clipboard.on('error', function(e) {
     console.log(e);
 });
+
+
+
+
+
+
+
+// 图表
+var GChart1;
+var GChart2;
+var maxLine = 0;
+var data={
+    survive:'73.9',
+    damage:'65.8',
+    support:'45.8',
+    supplies:'45.8',
+    kills:'45.28',
+}
+initChart(data);
+$(window).resize(function(){
+    GChart1.resize();
+});//屏幕变化时自动调整图表
+function initChart(data) {
+    GChart1 = echarts.init(document.getElementById('main'));
+    var data1 = [data['survive'],data['damage'],data['support'],data['supplies'],data['kills']];
+
+    maxLine = Math.round(maxLine*1.2);
+    $("#maxLine").text(maxLine);
+    $("#centerLine").text(Math.round(maxLine/2));
+    var option = {
+        legend: {
+            data: ['detail']
+        },
+        radar: {
+            splitArea: {
+                show: false,
+                areaStyle: {
+                    color: ["none"]
+                }
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    width: 1,
+                    opacity:0.39,
+                    color: '#d8c18e'
+                }
+            },
+            indicator: [
+                {max: 100},
+                {max: 100},
+                {max: 100},
+                {max: 100},
+                {max: 100}
+            ],
+            axisLine: {
+                show: false
+            }
+        },
+        series: [{
+                type: 'radar',
+         
+                data: [
+                    {
+                        value: data1,
+                    }
+                ],
+                symbolSize: 6,
+                lineStyle:{
+                    normal:{
+                       
+                         width:0,
+                    }
+                },
+                itemStyle:{
+                    normal:{
+                        opacity: "0.6",
+                        color: "#44eceb",
+                        shadowColor:'#44eceb',
+                        shadowBlur: 4
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        opacity: "0.5",
+                        color: "rgba(68,236,235,60)"
+                    }
+                }
+            }]
+    };
+  
+    GChart1.setOption(option);
+
+}
