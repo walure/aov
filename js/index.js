@@ -120,7 +120,6 @@ clipboard.on('error', function(e) {
 
 // 图表
 var GChart1;
-var GChart2;
 var maxLine = 0;
 var data={
     survive:'73.9',
