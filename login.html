@@ -21,6 +21,9 @@
             background: url('image/login-bg.jpg') no-repeat;
             background-size: 100%;
         }
+        .logo{ text-align: right; padding: 0.5rem 0.3rem}
+        .logo img:nth-child(1){width: 1rem; margin-right: 0.2rem;}
+        .logo img:nth-child(2){width: 2.18rem;}
         .aov-footer{
                 width: 100%;
                 position: fixed;
@@ -47,17 +50,19 @@
 
 </head>
 <body> 
-   
+   <section class="logo">
+    <img src="image/logo.png">
+    <img id="logo" src="image/logo-lan/tw.png"/>
+   </section>
     <footer class="aov-footer">
-        <div class="describe">
-                Share statistikmu di Facebook dan undang temanmu yang bermain AOV untuk memberi Like pada Post- mu. Raih 10 Likes dan dapatkan Gift Pack!
-        </div>
+        <div class="describe text-set" data-id="coverShare">
+      </div>
         <div class="btn-box">
             <div class="btn yellow login-btn">
                 <div class="out"> <div></div></div>
                 <div class="text">
                     <i class="icon login"></i>
-                    <i>登錄</i>
+                    <i class="text-set" data-id="coverBtnLogin"></i>
                 </div>
             </div>
         </div>
@@ -67,24 +72,28 @@
                         <div class="out"> <div></div></div>
                         <div class="text">
                             <i class="icon go"></i>
-                            <i>Masuki Match</i>
+                            <i class="text-set" data-id="coverBtnOpen"></i>
                         </div>
                     </div>
                     <div class="btn beep-blue login-btn">
                             <div class="out"> <div></div></div>
                             <div class="text">
                                 <i class="icon down"></i>
-                                <i>下載遊戲</i>
+                                <i class="text-set" data-id="coverBtnDownload"></i>
                             </div>
                         </div>
         </div>
 
     </footer>
         
-       
+        
  
-    <script src="js/resize.js"></script> 
+    <script src="js/resize.js"></script>
+     
     <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script> 
+    <script src="js/common.js"></script> 
+
+    
 </body>
 
 </html>

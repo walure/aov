@@ -1,6 +1,3 @@
-$(function() {
-	FastClick.attach(document.body);
-})
 function isMobile() {
     return /iphone|ios|android|mini|mobile|mobi|Nokia|Symbian|iPod|iPad|Windows\s+Phone|MQQBrowser|wp7|wp8|UCBrowser7|UCWEB|360\s+Aphone\s+Browser|blackberry/i.test(navigator.userAgent);
 }
@@ -60,7 +57,28 @@ function isMobile() {
      }
  }
 
- //facebookObj.init('#shareFacebook')
+var dialogFuc={
+    show:function(){
+        $('#dialog-box').addClass('show')
+    },
+    hide:function(){
+        $('#dialog-box').removeClass('show')
+    },
+    init:function(){
+        var that = this
+        $('#dia-close').click(function(){
+            that.hide()
+        })
+    }
+}
+dialogFuc.init()
+
+
+
+
+
+
+
 
 
 
@@ -85,7 +103,8 @@ var clipboard = new Clipboard(btn);//实例化
 
 //复制成功执行的回调，可选
 clipboard.on('success', function(e) {
-    console.log(e);
+    console.log(e)
+    dialogFuc.show('复制成功')
 });
 
 //复制失败执行的回调，可选
@@ -186,3 +205,9 @@ function initChart(data) {
     GChart1.setOption(option);
 
 }
+
+
+
+
+//facebook 分享
+facebookObj.init('#shareFacebook')

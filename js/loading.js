@@ -69,9 +69,6 @@ loading.prototype={
 
 var ImgLoading=new loading({
 	complete:function(){
-
-		
-
    }});	
 ImgLoading.init();  
  

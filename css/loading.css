@@ -39,6 +39,6 @@
    border-radius: 0.2rem;
 }
 
-#vague .box {height: 0.2rem; border-radius: 0.2rem; background: #bba372; z-index: 2;overflow: hidden;}
+#vague .box {height: 0.2rem; border-radius: 0.2rem;    width: 0; background: #bba372; z-index: 2;overflow: hidden;}
 #vague .box div{height: 288px;  background-size: 100%; }
 #vague .box1{ background-size: 100%;bottom: 0px; }

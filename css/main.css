@@ -1,11 +1,16 @@
-body{overflow: hidden; overflow-y: auto}
+/* @font-face {
+    font-family:"微软雅黑 Light";
+    src: url('Microsoft YaHei UI Light.ttf');
+
+  } */
+body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.jpg) repeat-y;}
 #content{display: none}
 .warp{
     background: url('../image/info-bg/3.jpg') repeat-y;
     background-size: 100% ;
     width: 100%;
     position: relative;
-    overflow-y: scroll;
+   
 }
 .warp .bg{
     width: 100%;
@@ -50,6 +55,8 @@ body{overflow: hidden; overflow-y: auto}
 .c-t,.c-t-1{
     font-size: 0.24rem;
     position: relative; 
+    color: #ffd063;
+    -webkit-mask-image: -webkit-gradient(linear, 1 0, 0 bottom, from(#fffbf3), to(rgba(208, 169, 98, 0.15)));
   
 }
 .c-t::before{
@@ -105,7 +112,7 @@ body{overflow: hidden; overflow-y: auto}
     background-size: 100%;
     padding-bottom: 0.4rem;
 }
-.common-hero .list{ }
+.common-hero .list{    min-height: 9rem; }
 .common-hero .list li{
     margin: 0.2rem 0.6rem
 }
@@ -190,7 +197,7 @@ margin-left: 0.5rem !important;
 
 
 .chart-box .chart-data{
-    width: 2.8rem; 
+    width: 6rem; 
     margin: auto;
     display: flex;
 }
@@ -258,8 +265,8 @@ margin-left: 0.5rem !important;
 /* logo-box */
 .logo-box{display: flex;
     justify-content: center;
-    align-items: flex-end;
-    height: 2.2rem;
+    align-items: center;
+    height: 2.5rem;
 }
 .logo-box img:nth-child(1){width: 1.1rem}
 .logo-box img:nth-child(2){width: 2.18rem; margin-left: 0.6rem}
