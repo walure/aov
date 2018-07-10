@@ -1,8 +1,8 @@
-/* @font-face {
-    font-family:"微软雅黑 Light";
-    src: url('Microsoft YaHei UI Light.ttf');
+ @font-face {
+    font-family:"HelveticaNeueLT Pro 45 Lt";
+    src: url('HELVETICANEUELTPRO-LT.OTF');
 
-  } */
+  } 
 body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.jpg) repeat-y;}
 #content{display: none}
 .warp{
@@ -84,7 +84,7 @@ body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.j
 .c-c{
     color: #3fe4e3;
     font-size: 0.32rem;
-    font-family: "微软雅黑 Light"
+    font-family: "HelveticaNeueLT Pro 45 Lt"
 }
 /* 玩家信息 */
 .content  .paly-info{
