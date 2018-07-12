@@ -153,6 +153,16 @@ margin-left: 0.5rem !important;
     left: -0.4rem;
     position: absolute;
 }
+.common-hero .list li .use-info .txt .ico-s span{
+    width: 0.8rem;
+    height: 0.8rem;
+    top: -0.1rem;
+    left: -0.4rem;
+    position: absolute;
+    display: block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
  .ico-s.s1::before{
     top: -0.14rem !important;
     background: url('../image/proficiency/HeroProficiency_Level_1.png') no-repeat; background-size: 100%

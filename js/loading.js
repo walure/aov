@@ -43,7 +43,7 @@ loading.prototype={
 	
 	},
 	timeShow:function(){
-		console.log(_this.percentage)
+		//console.log(_this.percentage)
 		// if(this.loadingNow<=this.total){
 		// 	this.loadingNow++;
 		// }

@@ -47,15 +47,15 @@
         </div>
     </section> 
 
-   <section class="warp" id="content">
+   <section class="warp" >
        <div class="bg">
            <img src="image/info-bg/1.jpg">
            <img src="image/info-bg/2.jpg">
            <img src="image/info-bg/3.jpg">
            <img src="image/info-bg/4.jpg">
        </div>
-       <div class="content">
-            <div class="user-name">#小貓釣魚#</div>
+       <div class="content" id="content">
+            <div class="user-name role_name" >#小貓釣魚#</div>
             <ul class="paly-info">
                 <li>
                     <div class="title c-t text-set" data-id="personalRank" data-text="當前段位"></div>
@@ -64,15 +64,15 @@
                 </li>
                 <li>
                     <div class="title c-t text-set" data-id="personalReg" data-text="注册时间 :"></div>
-                    <div class="desc c-c">2017.06.12</div>
+                    <div class="desc c-c register_year">2017.06.12</div>
                 </li>
                 <li>
                     <div class="title c-t text-set"  data-id="personalDays" data-text="距離今天 :"></div>
-                    <div class="desc c-c">456天</div>
+                    <div class="desc c-c days">456</div>
                 </li>
                 <li>
                     <div class="title c-t text-set" data-id="personalMatches" data-text="累計戰鬥次數 :"></div>
-                    <div class="desc c-c">526次</div>
+                    <div class="desc c-c">526</div>
                 </li>
                 <li>
                     <div class="title c-t text-set" data-id="personalGlory" data-text="戰鬥榮耀 :">  </div>
@@ -94,7 +94,7 @@
             <!-- 常用英雄 -->
             <div class="common-hero">
                 <div class="title c-t text-set" data-id="heroFavorite" data-text="COMMON HERO"></div>
-                <ul class="list">
+                <ul class="list" id="hero-list">
                     <li class="item">
                         <div class="hero-img"><img src="image/hero/1.jpg"></div>
                         <div class="use-info">
@@ -275,15 +275,42 @@
        
 
    </section>
-   <div class="dialog" id="dialog-box"  >
+   <!-- 台湾区域选区 -->
+   <div class="dialog" id="dialog-box-select"  >
     <div class="dia-con">
         <div class="dia-box">
             <div class="npc"><img /src="image/npc.png"></div>
             <div class="desc">
+                請選擇妳區號
+            </div>
+            <div class=" btn-group select-area-box">
+                <div class="btn brown" id="selectArea1">
+                        <div class="out"> <div></div></div>
+                        <div class="text noIcon">
+                            <i>1.聖騎之王</i>
+                        </div>
+                </div>
+                <div class="btn brown" id="selectArea2">
+                    <div class="out"> <div></div></div>
+                    <div class="text noIcon">
+                        <i>2.純潔之翼</i>
+                    </div>
+            </div>
+            </div>
+            <a class="dia-close" id="dia-select-close" title="关闭"><img src="image/close.png"></a>
+        </div>
+    </div>
+</div>
+<!-- 弹框提示 -->
+   <div class="dialog" id="dialog-box"  >
+    <div class="dia-con">
+        <div class="dia-box">
+            <div class="npc"><img /src="image/npc.png"></div>
+            <div class="desc" id="dialog-box-text">
                 未查询您的账号
             </div>
             <div class="btn-box">
-                <div class="btn brown">
+                <div class="btn brown" id="dia-submit">
                         <div class="out"> <div></div></div>
                         <div class="text">
                             <i class="icon refresh"></i>
@@ -294,7 +321,6 @@
             <a class="dia-close" id="dia-close" title="关闭"><img src="image/close.png"></a>
         </div>
     </div>
-   
 </div>
 <script src="js/resize.js"></script> 
     <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script>

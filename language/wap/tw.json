@@ -7,8 +7,9 @@
     "coverBtnDownload":"下载",
     "personalReg":"注册日期 :",
     "personalDays":"距今天数 :",
-
-
+    
+    "day":"天",
+    "times":"次", 
 
     "personalMatches":"累积战斗次数 :",
     "personalRank":"当前段位",

@@ -1,3 +1,4 @@
+var GlobLAN = {}
 //获取url中的参数
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
@@ -15,13 +16,14 @@ function getQueryString(name) {
   }
 
     function setLogo(lan){
-       var lan = getQueryString('lan') || 'tw';
-      $('#logo').attr('src','image/logo-lan/'+lan+'.png')          
+       var lan = getQueryString('language') || 'tw';
+      $('#logo').attr('src','image/logo-lan/'+lan.toLowerCase()+'.png')          
     }
   function loadLan(){
-    var lan = getQueryString('lan') || 'zh';
-    $.get('language/wap/'+lan+'.json',function(res){
+    var lan = getQueryString('language') || 'zh';
+    $.get('language/wap/'+lan.toLowerCase()+'.json',function(res){
         console.log(res);
+        GlobLAN = res;
         setText(res)
     });
 

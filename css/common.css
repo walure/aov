@@ -74,10 +74,14 @@ html{font-size:100px;}
     margin-left: -0.2rem;
   
 }
+.btn .text.noIcon i{
+    margin: 0
+}
 .btn-group{text-align: center;
     display: flex;
     justify-content: space-between;
 }
+
 .btn-group .btn{ }
 .icon{
     display: inline-block;
@@ -146,7 +150,7 @@ html{font-size:100px;}
     visibility:visible;
 }
 .dialog .dia-con{
-    background: rgb(2,3,5);
+    background: rgba(2, 3, 5, 0.82);
     border:1px solid rgba(132,131,110,0.45);
     padding: 0.1rem;
     width: 86%;
@@ -178,3 +182,7 @@ html{font-size:100px;}
 }
 .dialog .dia-close{position: absolute; right: -5%;top:-8%; width:0.45rem }
 .dialog .dia-close img{width: 100%;}
+
+.dialog .select-area-box{
+    width: 80%; margin:0.7rem auto
+}

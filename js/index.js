@@ -57,9 +57,32 @@ function isMobile() {
      }
  }
 
+
+
+
+
+//弹出层
 var dialogFuc={
-    show:function(){
+    show:function(txt,btnType,callback){
+        //0 确定 1 刷新 
+        if(txt){
+            $('#dialog-box-text').html(txt)
+        }
+        if(btnType==0){
+            $('#dia-submit .text').html(
+                '<i class="icon success"></i><i>'+GlobLAN['tipsConfirm']+'</i>'
+            )
+        }else if(btnType==1){
+            $('#dia-submit .text').html(
+                '<i class="icon refresh"></i><i>'+GlobLAN['tipsRefresh']+'</i>'
+            )
+        }
+        var that = this;
         $('#dialog-box').addClass('show')
+        
+        $('#dia-submit').unbind().bind('click',function(){
+            that.hide()
+        })
     },
     hide:function(){
         $('#dialog-box').removeClass('show')
@@ -71,7 +94,25 @@ var dialogFuc={
         })
     }
 }
-dialogFuc.init()
+dialogFuc.init();
+
+//选区控制
+var dialogSelectFuc={
+    show:function(){
+        $('#dialog-box-select').addClass('show');
+       
+    },
+    hide:function(){
+        $('#dialog-box-select').removeClass('show')
+    },
+    init:function(){
+        var that = this
+        $('#dia-select-close').click(function(){
+            that.hide()
+        })
+    }
+}
+dialogSelectFuc.init()
 
 
 
@@ -79,6 +120,93 @@ dialogFuc.init()
 
 
 
+//定义图表
+var GChart1;
+        
+//信息
+var  dataHandle={
+    init:function(){
+        this.loadUser()
+    },
+    loadUser:function(){
+        var that = this;
+        $.ajax({
+            type : 'get',
+            url : 'http://external.mrms.garena.tw/commonAct/a20180702AOV/index.php',
+            dataType : 'json',
+            data : {
+                sServiceType:getQueryString('sServiceType'),
+                language:getQueryString('language'),
+                ticket:getQueryString('ticket'),
+                areaid:getQueryString('areaid'),
+                partition:getQueryString('partition'),
+                platid:getQueryString('platid'),
+                action:getQueryString('action'),
+                from:getQueryString('from'),
+            },
+            success:function(res){
+                console.log(res)
+                if(res.code===0){
+                    that.innerText(res.data)
+                }else{
+                    dialogFuc.show(GlobLAN['code'+res.code],0)
+                }
+               
+            },
+            error:function(res){
+                dialogFuc.show(GlobLAN['tipsLag'],1)
+            }
+        });
+    },
+    innerText:function(data){
+        $('#content .role_name').text(data.role_name);
+        $('#content .register_year').text(data.register_year);
+        $('#content .days').text(data.days);
+        $('#content .total_game_cnt').text(data.total_game_cnt);
+        
+        var html = '';
+        for(var i=0,o;o=data.heroes[i];i++){
+            html+='<li class="item">'+
+                    '<div class="hero-img"><img src="'+o.hero_icon+'"></div>'+
+                    '<div class="use-info">'+
+                        '<div class="name c-t-1" data-text="'+o.hero_name+'">'+o.hero_name+'</div>'+
+                        '<div class="txt">'+
+                            '<span class="c-t text-set" data-id="heroProficiency" data-text="熟練度"></span> '+
+                            '<span class="c-c ico-s" ><span style="background-image:url('+o.profession_icon+')"></span>'+o.proficiency+'</span> '+
+                        '</div>'+
+                        '<div class="txt">'+
+                                '<span class="c-t text-set" data-id="heroMatches" data-text="場次"></span> '+
+                                '<span class="c-c">232</span> '+
+                        '</div>'+
+                        '<div class="txt">'+
+                                '<span class="c-t text-set" data-id="heroWinRate" data-text="勝率"></span> '+
+                                '<span class="c-c">'+o.win_percent+'%</span> '+
+                        '</div>'+
+                    '</div>'+
+                '</li>'
+        }
+        $('#hero-list').html(html);
+        setText(GlobLAN);
+
+        // 图表
+      
+        var data={
+            survive: data.avg_hurt,
+            damage:'68',
+            support:'45.8',
+            supplies:'45.8',
+            kills:'45.28',
+        }
+        initChart(data);
+        $(window).resize(function(){
+            GChart1.resize();
+        });
+
+        //
+    }
+}
+
+dataHandle.init()
 
 
 
@@ -118,24 +246,13 @@ clipboard.on('error', function(e) {
 
 
 
-// 图表
-var GChart1;
-var maxLine = 0;
-var data={
-    survive:'73.9',
-    damage:'65.8',
-    support:'45.8',
-    supplies:'45.8',
-    kills:'45.28',
-}
-initChart(data);
-$(window).resize(function(){
-    GChart1.resize();
-});//屏幕变化时自动调整图表
+
+
+//屏幕变化时自动调整图表
 function initChart(data) {
     GChart1 = echarts.init(document.getElementById('main'));
     var data1 = [data['survive'],data['damage'],data['support'],data['supplies'],data['kills']];
-
+    var maxLine = 0;
     maxLine = Math.round(maxLine*1.2);
     $("#maxLine").text(maxLine);
     $("#centerLine").text(Math.round(maxLine/2));
