@@ -59,8 +59,8 @@
             <ul class="paly-info">
                 <li>
                     <div class="title c-t text-set" data-id="personalRank" data-text="當前段位"></div>
-                    <div class="desc c-c">SS-战神</div>
-                    <div class="ico"><img src="image/paragraph/Icon_CompetitiveRace_7.png"></div>
+                    <div class="desc c-c grade_level">SS-战神</div>
+                    <div class="ico"><img class="grade_icon" src="image/paragraph/Icon_CompetitiveRace_7.png"></div>
                 </li>
                 <li>
                     <div class="title c-t text-set" data-id="personalReg" data-text="注册时间 :"></div>
@@ -72,20 +72,20 @@
                 </li>
                 <li>
                     <div class="title c-t text-set" data-id="personalMatches" data-text="累計戰鬥次數 :"></div>
-                    <div class="desc c-c">526</div>
+                    <div class="desc c-c total_game_cnt">526</div>
                 </li>
                 <li>
                     <div class="title c-t text-set" data-id="personalGlory" data-text="戰鬥榮耀 :">  </div>
                     <div class="list-box c-c">
                         <div class="item">
-                            <p class="ico"><img src="image/battle-honor/legendary.png"></p>
-                            <p>超 神 </p>
-                            <p>102</p>
+                            <p class="ico"><img class="honor_1_icon" src="image/battle-honor/legendary.png"></p>
+                            <p class="honor_1">超 神 </p>
+                            <p class="honor_1_val">102</p>
                         </div>
                         <div class="item">
-                            <p class="ico"><img src="image/battle-honor/victory-mvp.png"></p>
-                            <p>勝方MVP </p>
-                            <p>55</p>
+                            <p class="ico"><img class="honor_2_icon" src="image/battle-honor/victory-mvp.png"></p>
+                            <p class="honor_2">勝方MVP </p>
+                            <p class="honor_2_val">55</p>
                         </div>
                     </div>
                 </li>
@@ -95,24 +95,7 @@
             <div class="common-hero">
                 <div class="title c-t text-set" data-id="heroFavorite" data-text="COMMON HERO"></div>
                 <ul class="list" id="hero-list">
-                    <li class="item">
-                        <div class="hero-img"><img src="image/hero/1.jpg"></div>
-                        <div class="use-info">
-                            <div class="name c-t-1" data-text="亞瑟">亞瑟</div>
-                            <div class="txt">
-                                   <span class="c-t text-set" data-id="heroProficiency" data-text="熟練度"></span> 
-                                   <span class="c-c ico-s s1">超级战士</span> 
-                            </div>
-                            <div class="txt">
-                                    <span class="c-t text-set" data-id="heroMatches" data-text="場次"></span> 
-                                    <span class="c-c">232</span> 
-                             </div>
-                             <div class="txt">
-                                    <span class="c-t text-set" data-id="heroWinRate" data-text="勝率"></span> 
-                                    <span class="c-c">60.0%</span> 
-                             </div>
-                        </div>
-                    </li>
+                    
                    
                            
                 </ul>
@@ -128,10 +111,10 @@
                                 <div class="detail_canvas">
                                     <div id="main" class="detail_bg"></div>
                                     <span class="detail_txt "><font class="language c-t-1 text-set" data-id="radarDamage" data-text="傷害"></font></span>
-                                    <span class="detail_txt"><font class="language c-t-1 text-set" data-id="radarSurvivability"  data-text="生存">生存</font></span>
-                                    <span class="detail_txt"><font class="language c-t-1 text-set" data-id="radarKDA" data-text="KDA"></font></span>
-                                    <span class="detail_txt"><font class="language c-t-1 text-set" data-id="radarAdvance" data-text="推进"></font></span>
-                                    <span class="detail_txt"><font class="language c-t-1 text-set" data-id="radarDisLeveling" data-text="金幣/分鐘"></font></span>
+                                    <span class="detail_txt"><font class="language c-t-1 text-set" data-id="radarSurvivability"  data-text="生存"></font></span>
+                                    <span class="detail_txt"><font class="language c-t-1 text-set " data-id="radarKDA" data-text="KDA"></font></span>
+                                    <span class="detail_txt"><font class="language c-t-1 text-set " data-id="radarAdvance" data-text="推进"></font></span>
+                                    <span class="detail_txt"><font class="language c-t-1 text-set " data-id="radarDisLeveling" data-text="金幣/分鐘"></font></span>
                                 </div>
                             </div
 
@@ -140,27 +123,27 @@
                 <div class="chart-data">
                     <div class="fl">
                         <p class="c-t-1 text-set" data-id="radarDamage" data-text="傷害"></p>
-                        <p class="c-c">88.68</p>
+                        <p class="c-c avg_hurt">88.68</p>
                         <p class="c-t-1 text-set" data-id="radarSurvivability" data-text="生存"></p>
-                        <p class="c-c">88.68</p>
+                        <p class="c-c avg_behurt">88.68</p>
                     </div>
                     <div class="fr">
                             <p class="c-t-1 text-set" data-id="radarDisLeveling" data-text="金幣/分鐘"></p>
-                            <p class="c-c">88/123</p>
+                            <p class="c-c percoin_cnt">88/123</p>
                             <p class="c-t-1 text-set" data-id="radarKDA" data-text="KDA"></p>
-                            <p class="c-c">88.68</p>
+                            <p class="c-c kda">88.68</p>
                             <p class="c-t-1 text-set" data-id="radarAdvance" data-text="推進"></p>
-                            <p class="c-c">88.68</p>
+                            <p class="c-c avg_towndestroy">88.68</p>
                         </div>
                 </div>
             </div>
 
 
             <!-- 点赞登陆分享 -->
-            <div class="user-box">
+            <div class="user-box" id="user-box">
                 <!-- 未登陆 -->
                 <div class="no-user hidden">
-                        <div class="desc"><span class="c-t-1 text-set" data-id="shareOwned" data-text="已有"></span>   <span class="c">666</span> <span class="c-t-1 text-set" data-id="shareLike" data-text="位好友為妳點贊" ></span></div>
+                        <div class="desc"><span class="c-t-1 text-set" data-id="shareOwned" data-text="已有"></span>   <span class="c vote">666</span> <span class="c-t-1 text-set" data-id="shareLike" data-text="位好友為妳點贊" ></span></div>
                         <div class="mt45">
                                 <div class="btn yellow login-btn">
                                         <div class="out"> <div></div></div>
@@ -190,7 +173,7 @@
 
                 </div>
                 <!-- 当前用户登陆 -->
-                <div class="curr-user hidden" >
+                <div class="curr-user " >
                        <div class="title c-t-1 text-set" data-id="shareThanking" data-text="感謝您對AOV的支持"></div>
                        <div class="desc">
                             此部汾內容由當的制定，內容主旨為憾激玩家的伎持，似及喧傳遊戲相關內容。<br>
@@ -220,12 +203,12 @@
                                 </div>
                         </div>
                         <div class="zan-tip">
-                                <font class="text-set" data-id="shareOwned">已有</font> <span>666</span> <font class="text-set" data-id="shareLike">位好友為妳點贊</font>
+                                <font class="text-set" data-id="shareOwned">已有</font> <span class="vote">666</span> <font class="text-set" data-id="shareLike">位好友為妳點贊</font>
                         </div>
 
                 </div>
                 <!-- 其他用户登陆 -->
-                <div class="other-user ">
+                <div class="other-user hidden">
                     <div>
                             <div class="btn yellow login-btn">
                                     <div class="out"> <div></div></div>

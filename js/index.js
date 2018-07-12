@@ -160,9 +160,19 @@ var  dataHandle={
     },
     innerText:function(data){
         $('#content .role_name').text(data.role_name);
+        $('#content .grade_level').text(data.grade_level);
+        $('#content .grade_icon').attr('src',data.grade_icon);
         $('#content .register_year').text(data.register_year);
         $('#content .days').text(data.days);
         $('#content .total_game_cnt').text(data.total_game_cnt);
+
+        $('#content .honor_1_icon').attr('src',data.honor_1_icon);
+        $('#content .honor_1').text(data.honor_1);
+        $('#content .honor_1_val').text(data.honor_1_val);
+        
+        $('#content .honor_2_icon').attr('src',data.honor_2_icon);
+        $('#content .honor_2').text(data.honor_2);
+        $('#content .honor_2_val').text(data.honor_2_val);
         
         var html = '';
         for(var i=0,o;o=data.heroes[i];i++){
@@ -190,19 +200,27 @@ var  dataHandle={
 
         // 图表
       
-        var data={
+        var datas={
             survive: data.avg_hurt,
             damage:'68',
             support:'45.8',
             supplies:'45.8',
             kills:'45.28',
         }
-        initChart(data);
+        initChart(datas);
         $(window).resize(function(){
             GChart1.resize();
         });
 
         //
+        $('#content .avg_hurt').text(data.avg_hurt);
+        $('#content .avg_behurt').text(data.avg_behurt);
+        $('#content .kda').text(data.kda);
+        $('#content .avg_towndestroy').text(data.avg_towndestroy);
+        $('#content .percoin_cnt').text(data.percoin_cnt);
+
+        //user-box
+        $('#user-box .vote').text(data.vote);
     }
 }
 
