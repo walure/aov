@@ -126,7 +126,9 @@ var GChart1;
 //信息
 var  dataHandle={
     init:function(){
+        this.isLoad()
         this.loadUser()
+        this.fabulous()
     },
     loadUser:function(){
         var that = this;
@@ -221,6 +223,55 @@ var  dataHandle={
 
         //user-box
         $('#user-box .vote').text(data.vote);
+
+
+        // 设置复制
+        $('#js-copy').attr('data-clipboard-text',location.href)
+        var btn = document.getElementById('js-copy');
+        var clipboard = new Clipboard(btn);//实例化
+
+        //复制成功执行的回调，可选
+        clipboard.on('success', function(e) {
+            console.log(e)
+            dialogFuc.show('复制成功')
+        });
+
+        //复制失败执行的回调，可选
+        clipboard.on('error', function(e) {
+            console.log(e);
+        });
+
+    },
+    isLoad:function(){
+        
+    },
+    //点赞动作
+    fabulous:function(){
+        $('#fabulous').click(function(){
+             if(!isLogin()){
+                 return
+             }
+            $.ajax({
+                type : 'get',
+                url : 'http://external.mrms.garena.tw/commonAct/a20180702AOV/checkLogin.php',
+                dataType : 'json',
+                data : {
+                    iOpenid:getQueryString('openid'),
+                    language:getQueryString('language'),
+                    ticket:getQueryString('ticket'),
+                    partition:getQueryString('partition'),
+                    from:getQueryString('from'),
+                    sServiceType:getQueryString('sServiceType')
+                },
+                success:function(res){
+                    console.log(res)
+                },
+                error:function(res){
+                    dialogFuc.show(GlobLAN['tipsLag'],1)
+                }
+            })
+        })
+
     }
 }
 
@@ -243,20 +294,6 @@ $('#client').click(function(){
     }
 })
 
-
-var btn = document.getElementById('js-copy');
-var clipboard = new Clipboard(btn);//实例化
-
-//复制成功执行的回调，可选
-clipboard.on('success', function(e) {
-    console.log(e)
-    dialogFuc.show('复制成功')
-});
-
-//复制失败执行的回调，可选
-clipboard.on('error', function(e) {
-    console.log(e);
-});
 
 
 
