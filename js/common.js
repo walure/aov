@@ -5,7 +5,7 @@ function getQueryString(name) {
     var r = window.location.search.substr(1).match(reg); 
     if (r != null) return unescape(r[2]); return null; 
   }
-
+  var cookiePre = 'a0702aov_';
 //设置cookie
   function setCookie(name, value)
   {
@@ -44,12 +44,23 @@ function isLogin(){
         }
     })
   }
-//设置logo
+//设置icon logo
     function setLogo(lan){
-       var lan = getQueryString('language') || 'TW'
-      $('#logo').attr('src','image/logo-lan/LOGO_'+lan.toUpperCase()+'.png')          
-      $('#logo2').attr('src','image/logo-lan/ProPic_'+lan.toUpperCase()+'.png')          
-      $('#logo729').attr('src','image/logo-lan/729LOGO_'+lan.toUpperCase()+'.png')          
+      var lan = getQueryString('language') || 'TW';
+      lan=lan.toUpperCase()
+      $('#logo').attr('src','image/logo-lan/LOGO_'+lan+'.png')          
+      $('#logo2').attr('src','image/logo-lan/ProPic_'+lan+'.png')          
+      $('#logo729').attr('src','image/logo-lan/729LOGO_'+lan+'.png')      
+      
+      var href = '';
+      if(lan=='TW' || lan=='VN' || lan=='TH'){
+        href='tty'
+      }else if(lan=='ID'){
+        href='id'
+      }else{
+        href='en'
+      }
+      $('.icon-head').attr('href','/image/title-icon/'+href+'.ico')
     }
   function loadLan(){
     var lan = getQueryString('language') || 'zh';
@@ -63,3 +74,31 @@ function isLogin(){
   }
   loadLan()
   setLogo()
+
+  //登录
+  loginAccount()
+  //loginAccount
+  function loginAccount(){
+    $('#loginAccount').click(function(){
+      // location.href="https://auth.garena.com/oauth/login"+location.search
+      var href = window.location.href;
+      var match = href.match(/^(.*\/)(.*)\?/);
+      if (!match) {
+          return false;
+      }
+      var serviceType = getQueryString('sServiceType');
+      var rediretUrl = match[1] + 'redirect.html?sServiceType='+getQueryString('sServiceType')+'&areaid='+getQueryString('areaid')+'&partition='+getQueryString('partition')+'&platid='+getQueryString('platid')+'&openid=' + getQueryString('openid') + '&sign=' + getQueryString('sign');
+      if(!GServiceType[serviceType]){
+          return false;
+      }
+      if (GServiceType[serviceType]['login'] == "garena") {
+          //显示garena登录
+          var authLoginUrl = 'https://auth.garena.com/oauth/login?client_id=' + GServiceType[serviceType]['id'] + '&redirect_uri=' + encodeURIComponent(rediretUrl) + '&response_type=token&all_platforms=1&locale=zh-TW&platform=1';
+          location.href = authLoginUrl
+      } else if (GServiceType[serviceType]['login'] == "facebook") {
+          //显示facebook登录
+          var authLoginUrl = 'https://www.arenaofvalor.com/act/oauth/index.html?game=' + GServiceType[serviceType]['id'] + '&redirect=' + encodeURIComponent(rediretUrl);
+         location.href = authLoginUrl
+      }
+   })
+  }

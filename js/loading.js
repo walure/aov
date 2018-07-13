@@ -9,7 +9,7 @@ function loading(options){
 				'image/info-bg/2.jpg',				
 				'image/info-bg/3.jpg',				
 				'image/info-bg/4.jpg',				
-				'image/battle-honor-bg.png',				
+			
 				'image/bg-1.png',				
 				'image/close.png',				
 				'image/dian.png',				

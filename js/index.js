@@ -243,7 +243,18 @@ var  dataHandle={
 
     },
     isLoad:function(){
-        
+        var index = 999
+        //页面加载的时候
+        if(getQueryString('openid') != getCookie('openid') && isLogin()){
+            index = 2
+        }
+        else if(isLogin()){
+            index = 1
+        }else{
+            index = 0
+        }
+        $('#user-box .user-item').eq(index).removeClass('hidden');
+     
     },
     //点赞动作
     fabulous:function(){
@@ -271,8 +282,8 @@ var  dataHandle={
                 }
             })
         })
+    },
 
-    }
 }
 
 dataHandle.init()

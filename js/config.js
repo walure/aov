@@ -1,0 +1,32 @@
+var GServiceType = {
+    'idwzryhw':{
+        'id':1000507,
+        'login':'garena',
+        'api':'https://external.mrms.garena.co.id'
+    },
+    'twwzryhw':{
+        'id':100050,
+        'login':'garena',
+        'api':'https://external.mrms.garena.tw'
+    },
+    'thawzryhw':{
+        'id':100055,
+        'login':'garena',
+        'api':'https://external.mrms.garena.in.th'
+    },
+    'vnwzryhw':{
+        'id':1137,
+        'login':'garena',
+        'api':'https://external.mrms.garena.vn'
+    },
+    'nawzryhw':{
+        'id':1134,
+        'login':'garena',
+        'api':'https://mrms.na.ngame.proximabeta.com'
+    },
+    'sawzryhw':{
+        'id':1136,
+        'login':'garena',
+        'api':'https://mrms.sa.ngame.proximabeta.com'
+    }
+};

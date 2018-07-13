@@ -65,7 +65,7 @@ html{font-size:100px;}
     justify-content: center;
     align-items: center;
     height: 0.48rem;
-
+    padding: 0 0.1rem;
 }
 .btn .text i{
     font-style: normal;

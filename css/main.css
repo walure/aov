@@ -96,7 +96,7 @@ body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.j
 .paly-info .ico{}
 .paly-info .ico img{width:1.6rem }
 
-.paly-info .list-box {display: flex; text-align: center;    margin-left: -0.3rem;}
+.paly-info .list-box {display: flex; text-align: center;   }
 .paly-info .item {margin-left: 0.5rem}
 .paly-info .item:first-child {margin-left:0}
 .paly-info .item p:nth-child(2){margin-top:-0.1rem}
@@ -122,7 +122,7 @@ body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.j
     padding-top: 0.1rem;
 }
 .common-hero .list li:last-child{border:none}
-.common-hero .list li .hero-img img{width:2rem }
+.common-hero .list li .hero-img img{width:2rem;    height: 2.6rem; }
 .common-hero .list li .use-info{margin-left: 0.4rem}
 .common-hero .list li .use-info .name{font-size: 0.36rem;
 border-bottom:  1px solid rgba(204, 204, 204, 0.09);
