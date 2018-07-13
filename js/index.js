@@ -153,6 +153,12 @@ var  dataHandle={
                 }else{
                     dialogFuc.show(GlobLAN['code'+res.code],0)
                 }
+
+                setTimeout(function(){
+                    console.log('加载完成')
+                    document.getElementById("loading").style.display='none';
+                    document.getElementById("content").style.display='block';
+                },200)
                
             },
             error:function(res){

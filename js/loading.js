@@ -47,7 +47,10 @@ loading.prototype={
 		// if(this.loadingNow<=this.total){
 		// 	this.loadingNow++;
 		// }
-		this.loadingNow =Math.floor(this.percentage/_this.imgList.length)*100
+		this.loadingNow =Math.floor(this.percentage/_this.imgList.length)*100;
+		if(this.loadingNow==100){
+			this.loadingNow = 99
+		}
 		document.getElementById("load").innerHTML=this.loadingNow+'%';
 		document.getElementById("loading-ico").style.left=this.loadingNow+'%';
 		document.getElementById("vague-box").style.width=this.loadingNow+'%';
@@ -55,9 +58,9 @@ loading.prototype={
 		if(_this.imgList.length=this.percentage){
 			setTimeout(function(){
 				console.log('加载完成')
-				document.getElementById("loading").style.display='none';
-				document.getElementById("content").style.display='block';
-				if(_this.options.complete) _this.options.complete();
+				//document.getElementById("loading").style.display='none';
+				//document.getElementById("content").style.display='block';
+				//if(_this.options.complete) _this.options.complete();
 			},200)
 			return;
 		}
