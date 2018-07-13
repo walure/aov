@@ -3,7 +3,14 @@ var GlobLAN = {}
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
     var r = window.location.search.substr(1).match(reg); 
-    if (r != null) return unescape(r[2]); return null; 
+    if (r != null ) 
+    {
+      if(unescape(r[2])=='null'){
+        return ''
+      }
+      return unescape(r[2]); 
+    }
+    return ''; 
   }
   var cookiePre = 'a0702aov_';
 //设置cookie
@@ -27,6 +34,8 @@ function getQueryString(name) {
           return null;
       }
   }
+// 
+
 //判断是否登录
 function isLogin(){
   if(getCookie('openid')){
@@ -48,9 +57,10 @@ function isLogin(){
     function setLogo(lan){
       var lan = getQueryString('language') || 'TW';
       lan=lan.toUpperCase()
-      $('#logo').attr('src','image/logo-lan/LOGO_'+lan+'.png')          
-      $('#logo2').attr('src','image/logo-lan/ProPic_'+lan+'.png')          
-      $('#logo729').attr('src','image/logo-lan/729LOGO_'+lan+'.png')      
+      var picUrl='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu'
+      $('#logo').attr('src',picUrl+'/logo-lan/LOGO_'+lan+'.png')          
+      $('#logo2').attr('src',picUrl+'/logo-lan/ProPic_'+lan+'.png')          
+      $('#logo729').attr('src',picUrl+'/logo-lan/729LOGO_'+lan+'.png')      
       
       var href = '';
       if(lan=='TW' || lan=='VN' || lan=='TH'){
@@ -60,11 +70,11 @@ function isLogin(){
       }else{
         href='en'
       }
-      $('.icon-head').attr('href','/image/title-icon/'+href+'.ico')
+      $('.icon-head').attr('href',picUrl+'/title-icon/'+href+'.ico')
     }
   function loadLan(){
     var lan = getQueryString('language') || 'zh';
-    $.get('language/wap/'+lan.toLowerCase()+'.json',function(res){
+    $.getJSON('language/wap/'+lan.toLowerCase()+'.json',function(res){
         console.log(res);
         GlobLAN = res;
         setText(res)
@@ -87,7 +97,7 @@ function isLogin(){
           return false;
       }
       var serviceType = getQueryString('sServiceType');
-      var rediretUrl = match[1] + 'redirect.html?sServiceType='+getQueryString('sServiceType')+'&areaid='+getQueryString('areaid')+'&partition='+getQueryString('partition')+'&platid='+getQueryString('platid')+'&openid=' + getQueryString('openid') + '&sign=' + getQueryString('sign');
+      var rediretUrl = match[1] + 'redirect.html?sServiceType='+getQueryString('sServiceType')+'&language='+getQueryString('language')+'&from='+getQueryString('from')+'&areaid='+getQueryString('areaid')+'&partition='+getQueryString('partition')+'&platid='+getQueryString('platid')+'&openid=' + getQueryString('openid') + '&sign=' + getQueryString('sign');
       if(!GServiceType[serviceType]){
           return false;
       }

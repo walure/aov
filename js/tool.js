@@ -1,15 +1,4 @@
-function getLanguage() {
-        var language = (window.navigator.browserLanguage || window.navigator.language).toLowerCase();
-        if (language.indexOf('en') > -1)      return "en";//英文
-        else if (language.indexOf('fr') > -1) return "fr";//法语
-        else if (language.indexOf('de') > -1) return "de";//德语
-        else if (language.indexOf('it') > -1) return "it";//意大利语
-        else if (language.indexOf('pt') > -1) return "pt";//葡萄牙
-        else if (language.indexOf('es') > -1) return "es";//西班牙
-        else if (language.indexOf('ru') > -1) return "ru";//俄罗斯
-        else if (language.indexOf('tr') > -1) return "tr";//土耳其
-        else return "en";
-    }
+
     function getPhoneSystem() { 
         var userAgentInfo = navigator.userAgent; 
         var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"); 
@@ -36,13 +25,7 @@ function getLanguage() {
     }
 
     function getParam(para){
-        var paraArr = location.search.substring(1).split('&');
-        for(var i = 0;i < paraArr.length;i++){
-            if(para == paraArr[i].split('=')[0]){
-                return paraArr[i].split('=')[1];
-            }
-        }
-        return '';
+         return GServiceType[getQueryString('sServiceType')][para]
     }
 
     function startGame() {

@@ -1,30 +1,36 @@
 var GServiceType = {
     'idwzryhw':{
+        'gameId':1181,
         'id':1000507,
         'login':'garena',
-        'api':'https://external.mrms.garena.co.id'
+        'api':'https://external.mrms.garena.co.id',
     },
     'twwzryhw':{
+        'gameId':1130,
         'id':100050,
         'login':'garena',
         'api':'https://external.mrms.garena.tw'
     },
     'thawzryhw':{
-        'id':100055,
+        'gameId':1138,
+        'id':100054,
         'login':'garena',
         'api':'https://external.mrms.garena.in.th'
     },
     'vnwzryhw':{
-        'id':1137,
+        'gameId':1137,
+        'id':100055,
         'login':'garena',
         'api':'https://external.mrms.garena.vn'
     },
     'nawzryhw':{
+        'gameId':1134,
         'id':1134,
         'login':'garena',
         'api':'https://mrms.na.ngame.proximabeta.com'
     },
     'sawzryhw':{
+        'gameId':1136,
         'id':1136,
         'login':'garena',
         'api':'https://mrms.sa.ngame.proximabeta.com'

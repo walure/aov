@@ -134,7 +134,7 @@ var  dataHandle={
         var that = this;
         $.ajax({
             type : 'get',
-            url : 'http://external.mrms.garena.tw/commonAct/a20180702AOV/index.php',
+            url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/index.php',
             dataType : 'json',
             data : {
                 sServiceType:getQueryString('sServiceType'),
@@ -143,8 +143,10 @@ var  dataHandle={
                 areaid:getQueryString('areaid'),
                 partition:getQueryString('partition'),
                 platid:getQueryString('platid'),
-                action:getQueryString('action'),
+                action:'getUserData',
                 from:getQueryString('from'),
+                openid:getQueryString('openid'),
+                sign:getQueryString('sign')
             },
             success:function(res){
                 console.log(res)
@@ -181,8 +183,19 @@ var  dataHandle={
         $('#content .honor_2_icon').attr('src',data.honor_2_icon);
         $('#content .honor_2').text(data.honor_2);
         $('#content .honor_2_val').text(data.honor_2_val);
-        
+        //战斗荣誉
         var html = '';
+        for(var i=0,o;o=data.honors[i];i++){
+            html+=' <div class="item">'+
+                   '<p class="ico"><img class="honor_1_icon" src="'+o.honor_icon+'"></p>'+
+                    '<p class="honor_1">'+o.honor+'</p>'+
+                    '<p class="honor_1_val">'+o.honor_val+'</p>'+
+                '</div>'
+        }
+        $('#honors-box').html(html)
+
+        //常用英雄
+         html = '';
         for(var i=0,o;o=data.heroes[i];i++){
             html+='<li class="item">'+
                     '<div class="hero-img"><img src="'+o.hero_icon+'"></div>'+
@@ -209,11 +222,11 @@ var  dataHandle={
         // 图表
       
         var datas={
-            survive: data.avg_hurt,
-            damage:'68',
-            support:'45.8',
-            supplies:'45.8',
-            kills:'45.28',
+            survive: data.radar_hurt,
+            damage:data.radar_behurt,
+            support:data.radar_kda,
+            supplies:data.radar_towndestroy,
+            kills:data.radar_percoin,
         }
         initChart(datas);
         $(window).resize(function(){
@@ -270,7 +283,7 @@ var  dataHandle={
              }
             $.ajax({
                 type : 'get',
-                url : 'http://external.mrms.garena.tw/commonAct/a20180702AOV/checkLogin.php',
+                url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/checkLogin.php',
                 dataType : 'json',
                 data : {
                     iOpenid:getQueryString('openid'),

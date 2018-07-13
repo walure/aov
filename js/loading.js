@@ -4,22 +4,26 @@ function loading(options){
 	this.options=options || {};
 	//this.complete 完成
 	_this=this;
+	var picUrl='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu';
 	this.imgList=[
-				'image/info-bg/1.jpg',				
-				'image/info-bg/2.jpg',				
-				'image/info-bg/3.jpg',				
-				'image/info-bg/4.jpg',				
+				'/info-bg/1.jpg',				
+				'/info-bg/2.jpg',				
+				'/info-bg/3.jpg',				
+				'/info-bg/4.jpg',				
 			
-				'image/bg-1.png',				
-				'image/close.png',				
-				'image/dian.png',				
-				'image/icon.png',				
-				'image/line.png',				
-				'image/logo.png',				
-				'image/name-bg.png',				
-				'image/npc.png',				
-				'image/title-line.png'			
+				'/bg-1.png',				
+				'/close.png',				
+				'/dian.png',				
+				'/icon.png',				
+				'/line.png',				
+				'/logo.png',				
+				'/name-bg.png',				
+				'/npc.png',				
+				'/title-line.png'			
 				];
+	for(var i=0;i<this.imgList.length;i++){
+		this.imgList[i] = picUrl+this.imgList[i] 
+	}				
 	this.percentage=0;
 	this.total=0;
 	this.loadingNow=0;

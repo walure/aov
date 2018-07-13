@@ -85,7 +85,7 @@ html{font-size:100px;}
 .btn-group .btn{ }
 .icon{
     display: inline-block;
-    background-image: url(../image/icon.png);
+    background-image: url(http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/icon.png);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 0.88rem;
@@ -136,7 +136,7 @@ html{font-size:100px;}
     visibility:hidden;
     position: fixed !important;
     z-index: 99;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,1);
     top: 0 !important;
     left: 0 !important;
     margin: 0 !important;

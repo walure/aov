@@ -6,7 +6,7 @@
 body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.jpg) repeat-y;}
 #content{display: none}
 .warp{
-    background: url('../image/info-bg/3.jpg') repeat-y;
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.jpg') repeat-y;
     background-size: 100% ;
     width: 100%;
     position: relative;
@@ -46,7 +46,7 @@ body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.j
     display: block;
     width: 3.5rem;
     height: 0.8rem;
-    background: url('../image/name-bg.png') no-repeat;
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/name-bg.png') no-repeat;
     background-size: 100%;
     position: absolute;
     left: 0;
@@ -64,7 +64,7 @@ body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.j
     display: inline-block;
     width: 0.1rem;
     height: 0.1rem;
-    background: url('../image/dian.png') no-repeat;
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/dian.png') no-repeat;
     background-size: 100%;
     position: absolute;
     top: 0.15rem;
@@ -108,7 +108,7 @@ body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.j
 .common-hero{ margin-top:1rem}
 .common-hero .title{
     font-size: 0.46rem; font-weight: bold; text-align: center;
-    background: url('../image/title-line.png') no-repeat bottom;
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/title-line.png') no-repeat bottom;
     background-size: 100%;
     padding-bottom: 0.4rem;
 }
@@ -143,7 +143,7 @@ margin-left: 0.5rem !important;
     display: block;
     width: 1.7rem;
     height: 0.46rem;
-    background: url('../image/battle-honor-bg.png') no-repeat; background-size: 100%
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/battle-honor-bg.png') no-repeat; background-size: 100%
 }
 .common-hero .list li .use-info .txt .ico-s::before{
     content: '';
@@ -163,30 +163,14 @@ margin-left: 0.5rem !important;
     background-size: 100%;
     background-repeat: no-repeat;
 }
- .ico-s.s1::before{
-    top: -0.14rem !important;
-    background: url('../image/proficiency/HeroProficiency_Level_1.png') no-repeat; background-size: 100%
-} 
-.ico-s.s2::before{
-    top: -0.14rem !important;
-    background: url('../image/proficiency/HeroProficiency_Level_2.png') no-repeat; background-size: 100%
-} 
-.ico-s.s3::before{
-    background: url('../image/proficiency/HeroProficiency_Level_3.png') no-repeat; background-size: 100%
-} 
-.ico-s.s4::before{
-    background: url('../image/proficiency/HeroProficiency_Level_4.png') no-repeat; background-size: 100%
-} 
-.ico-s.s5::before{
-    background: url('../image/proficiency/HeroProficiency_Level_5.png') no-repeat; background-size: 100%
-} 
+
 
 /* 图表 */
 
 .chart-box{ margin-top: 1rem; width: 100%;}
 
 .chart-box .title{
-    background: url('../image/title-line.png') no-repeat bottom;
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/title-line.png') no-repeat bottom;
     background-size: 100%;
     width: 100%;
     height: 0.5rem
@@ -221,7 +205,7 @@ margin-left: 0.5rem !important;
 }
 .chart-box .chart-data .fr{
     padding-left: 0.3rem;
-    background:url('../image/line.png') no-repeat left;
+    background:url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/line.png') no-repeat left;
     background-size: auto 100%;
 }
 
@@ -237,7 +221,7 @@ margin-left: 0.5rem !important;
  text-align: center;
  overflow: hidden;
  padding-bottom: 0.3rem;
- background: url('../image/bg-1.png') repeat-x bottom;
+ background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/bg-1.png') repeat-x bottom;
  border-bottom: 1px solid rgba(139, 113, 63, 0.35);
 }
 .no-user .desc{}
@@ -265,7 +249,7 @@ margin-left: 0.5rem !important;
     
     text-align: center;
     padding-top: 0.6rem;
-    background: url('../image/bg-1.png') repeat-x bottom;
+    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/bg-1.png') repeat-x bottom;
     border-bottom: 1px solid rgba(139, 113, 63, 0.35);
 }
 .other-user .mt40{margin-top:0.4rem}
