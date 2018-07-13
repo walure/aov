@@ -259,7 +259,7 @@ var  dataHandle={
         }else{
             index = 0
         }
-        $('#user-box .user-item').eq(index).removeClass('hidden');
+        $('#user-box .user-item').eq(1).removeClass('hidden');
      
     },
     //点赞动作
