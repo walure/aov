@@ -139,14 +139,15 @@ var  dataHandle={
             data : {
                 sServiceType:getQueryString('sServiceType'),
                 language:getQueryString('language'),
-                ticket:getQueryString('ticket'),
+                ticket:getQueryString('ticket') || getCookie('ticket'),
                 areaid:getQueryString('areaid'),
                 partition:getQueryString('partition'),
                 platid:getQueryString('platid'),
                 action:'getUserData',
                 from:getQueryString('from'),
-                openid:getQueryString('openid'),
-                sign:getQueryString('sign')
+                iOpenid:getQueryString('openid'),
+                sign:getQueryString('sign'),
+                access_token:getQueryString('access_token') || getCookie('access_token')
             },
             success:function(res){
                 console.log(res)
