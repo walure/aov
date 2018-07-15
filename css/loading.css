@@ -38,6 +38,7 @@
     position:relative;
    border: 1px solid #bba372;
    border-radius: 0.2rem;
+   overflow: hidden;
 }
 
 #vague .box {height: 0.2rem; border-radius: 0.2rem;    width: 0; background: #bba372; z-index: 2;overflow: hidden;}

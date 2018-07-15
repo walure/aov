@@ -3,11 +3,22 @@
     src: url('HELVETICANEUELTPRO-LT.OTF');
 
   } 
-body{overflow: hidden; overflow-y: auto;    background: url(../image/info-bg/3.jpg) repeat-y;}
+body{overflow: hidden; overflow-y: auto;  
+      background: url(../image/info-bg/3.jpg) repeat-y;}
+#page403{
+    display: none;
+    position: fixed; 
+    z-index: 99;
+    background: #fff;
+    width: 100%; 
+    height: 100%;
+    text-align: center;
+
+}
+#page403 div{font-size: 0.3rem; margin-top: 1rem}
 #content{display: none}
 .warp{
-    background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.jpg') repeat-y;
-    background-size: 100% ;
+
     width: 100%;
     position: relative;
    

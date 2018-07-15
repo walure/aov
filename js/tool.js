@@ -14,10 +14,10 @@
         switch(getPhoneSystem()) {
             case 'iPhone':
             case 'iPad':
-                window.location = getDownloadLocation(getParam('gameid'), "iPhone");//ios下载地址
+                window.location = getDownloadLocation(getParam('gameId'), "iPhone");//ios下载地址
                 break;
             case 'Android':
-                window.location= getDownloadLocation(getParam('gameid'), "Android"); //android下载地址
+                window.location= getDownloadLocation(getParam('gameId'), "Android"); //android下载地址
                 break;
             default:
                 break;
@@ -30,6 +30,7 @@
 
     function startGame() {
         //pgvSendClick({virtualDomain: 'sok.qq.com', hottag:'ngame.officalweb.startgame2'});
+        console.log(getPhoneSystem())
         switch(getPhoneSystem()) {
             case 'iPhone':
             case 'iPad':
@@ -37,26 +38,27 @@
                 // window.setTimeout(function() {
                 //     var timeOutDateTime = new Date();
                 //     if (timeOutDateTime - loadDateTime < 5000) {
-                //         window.location = getDownloadLocation(getParam('gameid'), "iPhone");//ios下载地址
+                //         window.location = getDownloadLocation(getParam('gameId'), "iPhone");//ios下载地址
                 //     } else {
                 //         window.close();
                 //     }
                 // },25);
-                if(getParam('gameid') == '1136' || getParam('gameid') == '1134' || getParam('gameid') == '1187') {
+                console.log(getParam('gameId'))
+                if(getParam('gameId') == '1136' || getParam('gameId') == '1134' || getParam('gameId') == '1187') {
                     window.location = 'ngame1135://deeplink' + location.search;
                 } else {
-                    window.location = 'ngame' + getParam('gameid') + '://deeplink' + location.search;
+                    window.location = 'ngame' + getParam('gameId') + '://deeplink' + location.search;
                 }
                 break;
             case 'Android':
                 try {
-                    if(getParam('gameid') == '1136' || getParam('gameid') == '1134' || getParam('gameid') == '1187') {
+                    if(getParam('gameId') == '1136' || getParam('gameId') == '1134' || getParam('gameId') == '1187') {
                         window.location = 'ngame1135://deeplink' + location.search;
                     } else {
-                        window.location = 'ngame' + getParam('gameid') + '://deeplink' + location.search;
+                        window.location = 'ngame' + getParam('gameId') + '://deeplink' + location.search;
                     }
                     // setTimeout(function(){
-                    //     window.location= getDownloadLocation(getParam('gameid'), "Android"); //android下载地址
+                    //     window.location= getDownloadLocation(getParam('gameId'), "Android"); //android下载地址
                     // },500);
                 } catch(e) {}
                 break;
@@ -65,8 +67,8 @@
         }
     }
 
-    function getDownloadLocation(gameid, os) {
-        switch(gameid) {
+    function getDownloadLocation(gameId, os) {
+        switch(gameId) {
             case "1185":
                 if(os == "iPhone") {
                     return "https://itunes.apple.com/app/id1323945138";
@@ -108,8 +110,10 @@
     }
 
     $('#login-game').click(function(){
+        console.log(0)
         startGame();
     })
     $('#downLoad-game').click(function(){
+        console.log(1)
         downloadGame();
     })

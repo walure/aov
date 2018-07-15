@@ -20,11 +20,21 @@ html{font-size:100px;}
     display: inline-block;
     position: relative;
 }
-
+.btn:active{
+    opacity: 0.8
+}
+.btn.gray:active{
+    opacity: 1
+}
 .btn.yellow{
     background-color: #ffd200;
     min-width: 2.2rem;
     color: #2d2105
+}
+.btn.gray{
+    background-color: #7f7f7f;
+    min-width: 2.2rem;
+    color: #221705
 }
 .btn.brown{
     background-color: #bda57c;
@@ -73,6 +83,9 @@ html{font-size:100px;}
     position: relative;
     margin-left: -0.2rem;
   
+}
+.btn .text i em{
+    font-style: normal
 }
 .btn .text.noIcon i{
     margin: 0

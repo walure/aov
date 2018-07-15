@@ -36,6 +36,33 @@ function getQueryString(name) {
   }
 // 
 
+//统计接口
+function statistic(platform){
+  $.ajax({
+    type : 'get',
+    url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/statistic.php',
+    dataType : 'json',
+    data : {
+       
+        partition:getQueryString('partition'),
+        ticket:getQueryString('ticket'),
+        platform:platform,
+        access_token:getQueryString('access_token') 
+    },
+    success:function(res){
+        console.log(res)
+        if(res.code===0){
+      
+        }else{
+  
+        }  
+    },
+    error:function(res){
+     console.log(res)
+    }
+  })
+}
+
 //判断是否登录
 function isLogin(){
   if(getCookie('openid')){
@@ -43,6 +70,8 @@ function isLogin(){
   }
   return false
 }
+
+
 
 //设置语言
   function setText(res){
@@ -52,6 +81,7 @@ function isLogin(){
             $(this).attr('data-text',res[$(this).attr('data-id')])
         }
     })
+    //设置facebook分享
   }
 //设置icon logo
     function setLogo(lan){

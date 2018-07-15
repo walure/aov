@@ -12,10 +12,10 @@
     <meta name="Copyright" content="Tencent" />
 
 
-    <meta property="og:url"           content="http://chuoquan.com/aov" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Arena of Valor" />
-    <meta property="og:description" content="I need your help to win this battle,join me Now!" />
+
+    <meta property="og:type"  class="fb-set" data-id="" content="类型" />
+    <meta property="og:title"  class="fb-set" data-id="" content="标题" />
+    <meta property="og:description"  class="fb-set" data-id="" content="描述" />
     <meta property="og:image" content="https://www.arenaofvalor.com/images/pc/bigicon.png">
 
     <link rel="icon" class="icon-head"  type="image/x-icon">
@@ -32,6 +32,9 @@
 
 </head>
 <body> 
+    <section id="page403">
+        <div class="text-set" data-id="code-997">页面已过期</div>
+    </section>
     <section id="loading">  
             <div class="loading-box">
                  <div id="casePourpre">
@@ -174,10 +177,9 @@
                 </div>
                 <!-- 当前用户登陆 -->
                 <div class="curr-user user-item   hidden" >
-                       <div class="title c-t-1 text-set" data-id="shareThanking" data-text="感謝您對AOV的支持"></div>
-                       <div class="desc">
-                            此部汾內容由當的制定，內容主旨為憾激玩家的伎持，似及喧傳遊戲相關內容。<br>
-                            此部汾內容由當的制定，內容主旨為憾激玩家的伎持，似及喧傳遊戲相關內容。<br>
+                       <div class="title c-t-1 text-set" data-id="shareThankTitle" data-text="感謝您對AOV的支持"></div>
+                       <div class="desc text-set" data-id="shareThanking">
+                          
                        </div>
                        <div class="btn-group ">
                             <div class="btn deep-blue login-btn" id="shareFacebook">
@@ -210,16 +212,26 @@
                 <!-- 其他用户登陆 -->
                 <div class="other-user user-item hidden ">
                     <div>
-                            <div class="btn yellow login-btn" id="fabulous">
+                            <div class="btn yellow login-btn" id="fabulous" style="display:none">
                                     <div class="out"> <div></div></div>
                                     <div class="text">
                                         <i class="icon fabulous"></i>
                                         <i class="text-set" data-id="flLike"></i>
                                     </div>
-                                </div>
+                            </div>
+                            <div class="btn gray login-btn" id="fabuloused" style="display:none">
+                                    <div class="out"> <div></div></div>
+                                    <div class="text">
+                                        <i class="icon login"></i>
+                                        <i>
+                                            <em class="text-set" data-id="flLiked"></em>
+                                            <em id="flLiked-num"></em>
+                                        </i>
+                                    </div>
+                            </div>
                         </div>
                         <div class="mt40">
-                            <div class="btn brown login-btn">
+                            <div class="btn brown login-btn" id="seeSelf">
                                     <div class="out"> <div></div></div>
                                     <div class="text">
                                         <i class="icon see"></i>
@@ -279,7 +291,7 @@
                     </div>
             </div>
             </div>
-            <a class="dia-close" id="dia-select-close" title="关闭"><img src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/close.png"></a>
+            <!-- <a class="dia-close" id="dia-select-close" title="关闭"><img src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/close.png"></a> -->
         </div>
     </div>
 </div>

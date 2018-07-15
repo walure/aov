@@ -40,7 +40,7 @@ function isMobile() {
      FBshare(shareURL) {
         var curHref = window.location.href;
         var tmpShareUrl =  curHref + ((curHref.indexOf('?') != -1) ? "&fbShareSucc=1" : '?fbShareSucc=1');
-
+        statistic('fb')
         var fbUrl = "https://www.facebook.com/dialog/feed?" +
             "app_id=333894633812906&display=touch" +
             "&link=" + encodeURIComponent(shareURL) +
@@ -51,8 +51,7 @@ function isMobile() {
          var that = this;
         $(id).click(function(){
             console.log(999)
-            console.log(FB)
-            that.FBshare("http://chuoquan.com/aov");
+            that.FBshare(location.href);
         })
      }
  }
@@ -145,29 +144,62 @@ var  dataHandle={
                 platid:getQueryString('platid'),
                 action:'getUserData',
                 from:getQueryString('from'),
-                iOpenid:getQueryString('openid'),
+                iOpenid:getQueryString('from')=='mine' ? '' : getQueryString('openid'),
                 sign:getQueryString('sign'),
                 access_token:getQueryString('access_token') || getCookie('access_token')
             },
             success:function(res){
                 console.log(res)
+                document.getElementById("loading").style.display='none';
                 if(res.code===0){
+                    if(res.data.role_count==2){
+                        $('#dialog-box-select').addClass('show');
+                        that.selectArea()
+                        return
+                    }
                     that.innerText(res.data)
                 }else{
                     dialogFuc.show(GlobLAN['code'+res.code],0)
                 }
-
-                setTimeout(function(){
-                    console.log('加载完成')
-                    document.getElementById("loading").style.display='none';
+                
+                if(res.code==997){
+                    document.getElementById("page403").style.display='block';
+                }else{
                     document.getElementById("content").style.display='block';
-                },200)
+                    
+                }
+                    
+                    
+              
                
             },
             error:function(res){
                 dialogFuc.show(GlobLAN['tipsLag'],1)
             }
         });
+    },
+    //如果t服
+    selectArea:function(){
+        $('#selectArea1,#selectArea2').click(function(){
+            var partition =''
+            if($(this).attr('id')=='#selectArea1'){
+                partition=1011
+            }else{
+                partition=1012
+            }
+            var parm = '?sServiceType='+getQueryString('sServiceType')+
+            '&language='+getQueryString('language')+
+            '&ticket='+getQueryString('ticket')+
+            '&areaid='+getQueryString('areaid')+
+            '&partition='+partition+
+            '&platid='+getQueryString('platid')+
+            '&action='+getQueryString('action')+
+            '&openid='+getCookie('openid')+
+            '&from=mine'
+
+            location.href=location.origin+location.pathname+parm
+
+        })
     },
     innerText:function(data){
         $('#content .role_name').text(data.role_name);
@@ -243,7 +275,14 @@ var  dataHandle={
 
         //user-box
         $('#user-box .vote').text(data.vote);
-
+        $('#fabulous').attr('vote',data.vote);
+        //是否已点赞
+        if(data.isVote==0){
+            $('#fabulous').show()
+        }else{
+            $('#fabuloused').show();
+            $('#flLiked-num').html(data.vote)
+        }
 
         // 设置复制
         $('#js-copy').attr('data-clipboard-text',location.href)
@@ -253,7 +292,8 @@ var  dataHandle={
         //复制成功执行的回调，可选
         clipboard.on('success', function(e) {
             console.log(e)
-            dialogFuc.show('复制成功')
+            statistic('copy')
+           //dialogFuc.show('复制成功')
         });
 
         //复制失败执行的回调，可选
@@ -265,29 +305,31 @@ var  dataHandle={
     isLoad:function(){
         var index = 999
         //页面加载的时候
+        console.log(getQueryString('openid'),getCookie('openid'))
         if(getQueryString('openid') != getCookie('openid') && isLogin()){
-            index = 2
+            index = 2;
+            //其他用户登陆
+            this.seeSelf()
         }
         else if(isLogin()){
+            //当前用户
             index = 1
         }else{
+            //未登录
             index = 0
         }
-        $('#user-box .user-item').eq(1).removeClass('hidden');
+        $('#user-box .user-item').eq(index).removeClass('hidden');
      
     },
     //点赞动作
     fabulous:function(){
         $('#fabulous').click(function(){
-             if(!isLogin()){
-                 return
-             }
             $.ajax({
                 type : 'get',
-                url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/checkLogin.php',
+                url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/vote.php',
                 dataType : 'json',
                 data : {
-                    iOpenid:getQueryString('openid'),
+                    iOpenid:getCookie('openid'),
                     language:getQueryString('language'),
                     ticket:getQueryString('ticket'),
                     partition:getQueryString('partition'),
@@ -296,6 +338,12 @@ var  dataHandle={
                 },
                 success:function(res){
                     console.log(res)
+                    if(res.code==0){
+                        $('#fabulous').hide()
+                        $('#fabuloused').show()
+                        var num = parseInt($('#fabulous').attr('vote'))
+                        $('#flLiked-num').html(num++)
+                    }
                 },
                 error:function(res){
                     dialogFuc.show(GlobLAN['tipsLag'],1)
@@ -303,6 +351,27 @@ var  dataHandle={
             })
         })
     },
+    //查看自己
+    seeSelf:function(){
+        $('#seeSelf').click(function(){
+            var partition = getQueryString('partition')
+            if(getQueryString('language').toLocaleLowerCase()=='tw'){
+                partition = 0;
+            }
+             var parm = '?sServiceType='+getQueryString('sServiceType')+
+                        '&language='+getQueryString('language')+
+                        '&ticket='+getQueryString('ticket')+
+                        '&areaid='+getQueryString('areaid')+
+                        '&partition='+partition+
+                        '&platid='+getQueryString('platid')+
+                        '&action='+getQueryString('action')+
+                        '&openid='+getCookie('openid')+
+                        '&from=mine'
+
+            location.href=location.origin+location.pathname+parm
+
+        })
+    }
 
 }
 
