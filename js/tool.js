@@ -109,11 +109,9 @@
         }
     }
 
-    $('#login-game').click(function(){
-        console.log(0)
+    $('#login-game,#login-game1').click(function(){
         startGame();
     })
-    $('#downLoad-game').click(function(){
-        console.log(1)
+    $('#downLoad-game,#downLoad-game1').click(function(){
         downloadGame();
     })
