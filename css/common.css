@@ -20,7 +20,7 @@ html{font-size:100px;}
     display: inline-block;
     position: relative;
 }
-.btn:active{
+.btn:active,.btn:hover{
     opacity: 0.8
 }
 .btn.gray:active{
