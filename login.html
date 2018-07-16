@@ -19,11 +19,22 @@
     <!-- 页面设计：gediao | 页面制作：walure | 创建：2018-07-08  -->
     <link rel="stylesheet" href="css/common.css" type="text/css" />
     <style>
-        body{ 
+        .login-bg-img{ 
             background-repeat: no-repeat;
             background-size: 100%;
+            width: 100%; 
+            max-width: 1000px;
+            height: 100%;
+           position: absolute;
+           left: 0;
+           right: 0;
+           margin: auto
         }
-        .logo{ text-align: right; padding: 0.5rem 0.3rem}
+        .body-bg{
+            width: 100%;
+          
+        }
+        .logo{ text-align: right; padding: 0.5rem 0.3rem; position: absolute; top: 0;right: 0; z-index: 2}
         .logo img:nth-child(1){width: 2rem;}
         .logo img:nth-child(2){width: 2rem;}
         .aov-footer{
@@ -51,8 +62,9 @@
     
 
 </head>
-<body class="login-bg-img"> 
-   <section class="logo">
+<body> 
+  <div class="login-bg-img">
+  <section class="logo"> 
     <img id="logo" src=""/>
     <img id="logo729" src="">
    </section>
@@ -87,7 +99,7 @@
         </div>
 
     </footer>
-        
+</div>
         
  
     <script src="js/resize.js"></script>

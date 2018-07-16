@@ -224,13 +224,14 @@ margin-left: 0.5rem !important;
 /* 点赞登陆分享  */
 
 .user-box{
-    margin-top: 2.1rem;
+    margin-top:1.6rem;
   
 }
 .user-box .hidden{display: none}
 .user-box .no-user{
  text-align: center;
  overflow: hidden;
+ padding-top: 0.2rem;
  padding-bottom: 0.3rem;
  background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/bg-1.png') repeat-x bottom;
  border-bottom: 1px solid rgba(139, 113, 63, 0.35);
@@ -244,12 +245,13 @@ margin-left: 0.5rem !important;
 /* 当前用户登陆 */
 .user-box .curr-user{
     text-align: center;
+    padding-top: 0.3rem;
 }
 .user-box .curr-user .title{font-size: 0.34rem; background: none}
 .user-box .curr-user .desc{color:#c6b9a1; font-size: 0.24rem; margin:0.3rem 10% 0.6rem;overflow: hidden}
 .user-box .curr-user .btn-group {
 
-    width: 90%;
+    width: 72%;
     margin: auto
 }
 .user-box .curr-user .zan-tip{color:#c6b9a1; font-size: 0.28rem;margin-top:0.4rem }

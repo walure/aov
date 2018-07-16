@@ -40,7 +40,10 @@ function isMobile() {
      FBshare(shareURL) {
         var curHref = window.location.href;
         var tmpShareUrl =  curHref + ((curHref.indexOf('?') != -1) ? "&fbShareSucc=1" : '?fbShareSucc=1');
-        statistic('fb')
+        if(!window.FBshareNum){
+            window.FBshareNum=true
+            statistic('fb')
+        }
         var fbUrl = "https://www.facebook.com/dialog/feed?" +
             "app_id=2033559596907192&display=touch" +
             "&link=" + encodeURIComponent(shareURL) +
@@ -292,7 +295,10 @@ var  dataHandle={
         //复制成功执行的回调，可选
         clipboard.on('success', function(e) {
             console.log(e)
-            statistic('copy')
+            if(!window.copyNum){
+                window.copyNum=true
+                statistic('copy')
+            }
            //dialogFuc.show('复制成功')
         });
 

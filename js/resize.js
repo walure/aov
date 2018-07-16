@@ -4,7 +4,15 @@
     function setFont() {
         var html = document.documentElement;
         var k = 750;
-        html.style.fontSize = html.clientWidth / k * 100 + "px";
+        if(location.pathname=='/login.html'){
+            if(document.documentElement.clientWidth>=1000){
+                html.style.fontSize = '100px'
+            }else{
+                html.style.fontSize = html.clientWidth / k * 100 + "px";
+            }
+        }else{
+            html.style.fontSize = html.clientWidth / k * 100 + "px";
+        }
     }
     setFont();
     setTimeout(function () {
