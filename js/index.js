@@ -83,6 +83,7 @@ var dialogFuc={
         $('#dialog-box').addClass('show')
         
         $('#dia-submit').unbind().bind('click',function(){
+            if(callback) callback();
             that.hide()
         })
     },

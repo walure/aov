@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>redirect....</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/common.css" type="text/css" />
+    </head>
+    <body>
+        <div id='loadingSvg' style='width: 100%;height: 100%;position: fixed;left: 0;top: 0;background: rgba(0,0,0,.7);z-index: 9999'>
+            <div style='width: 150px;height: 150px;position: absolute;left: 50%;top: 50%;margin-left: -75px;margin-top: -75px'>
+                <svg width='150px' height='150px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='uil-default'>
+                    <rect x='0' y='0' width='100' height='100' fill='none' class='bk'></rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(0 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(30 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.08333333333333333s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(60 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.16666666666666666s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(90 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.25s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(120 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(150 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4166666666666667s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(180 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(210 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5833333333333334s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(240 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(270 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.75s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(300 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8333333333333334s' repeatCount='indefinite' />
+                    </rect>
+                    <rect x='46.5' y='40' width='7' height='20' rx='5' ry='5' fill='#d6d6d6' transform='rotate(330 50 50) translate(0 -30)'>
+                            <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.9166666666666666s' repeatCount='indefinite' />
+                    </rect>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 弹框 -->
+        <div class="dialog" id="dialog-box" style="    z-index: 9999;" >
+                <div class="dia-con">
+                    <div class="dia-box">
+                        <div class="npc"><img /src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/npc.png"></div>
+                        <div class="desc" id="dialog-box-text">
+                            未查询您的账号
+                        </div>
+                        <div class="btn-box">
+                            <div class="btn brown" id="dia-submit">
+                                    <div class="out"> <div></div></div>
+                                    <div class="text">
+                                        <i class="icon refresh"></i>
+                                        <i>确认</i>
+                                    </div>
+                            </div>
+                        <!-- </div>
+                        <a class="dia-close" id="dia-close" ><img src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/close.png"></a> -->
+                    </div>
+                </div>
+            </div>
+
+
+        <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script> 
+        <script src="js/config.js?v=4"></script>
+        <script src="js/common.js?v=4"></script>
+        <script>
+            
+            //弹出层
+            var dialogFuc={
+                show:function(txt,btnType,callback){
+                    //0 确定 1 刷新 
+                    if(txt){
+                        $('#dialog-box-text').html(txt)
+                    }
+                    if(btnType==0){
+                        $('#dia-submit .text').html(
+                            '<i class="icon success"></i><i>'+GlobLAN['tipsConfirm']+'</i>'
+                        )
+                    }else if(btnType==1){
+                        $('#dia-submit .text').html(
+                            '<i class="icon refresh"></i><i>'+GlobLAN['tipsRefresh']+'</i>'
+                        )
+                    }
+                    var that = this;
+                    $('#dialog-box').addClass('show')
+                    
+                    $('#dia-submit').unbind().bind('click',function(){
+                        if(callback) callback();
+                        that.hide()
+                    })
+                },
+                hide:function(){
+                    $('#dialog-box').removeClass('show')
+                },
+                init:function(){
+                    var that = this
+                    $('#dia-close').click(function(){
+                        that.hide()
+                    })
+                }
+            }
+            dialogFuc.init();
+        
+           
+            //跳转至活动页面
+            function toActUrl(extUrl) {
+                var href = window.location.href;
+                var match = href.match(/^(.*\/)(.*)\?/);
+                if (match) {
+                    var url = match[1] + 'main.html?sServiceType=' + getQueryString('sServiceType') + '&areaid=' + getQueryString('areaid') + '&partition=' + getQueryString('partition') + '&platid='
+                        + getQueryString('platid') + '&language=' + getQueryString('language') +'&from=' + getQueryString('from') + "&" + extUrl;
+                    window.location = url;
+                    return true;
+                }
+            }
+
+            //获取接口地址
+            function getApiUrl(name) {
+                var st = getQueryString("sServicetype");
+                if(!st){
+                    return false;
+                }
+                st = st.toLowerCase();
+                return GServiceType[st]['api'] + "/commonAct/a20180702AOV/" + name + ".php";
+            }
+
+
+            //票据换openid和sign
+            var data = {action:"getOpenid",sServiceType:getQueryString("sServiceType"),areaid: getQueryString("areaid"),partition: getQueryString("partition"),platid: getQueryString("platid")};
+            if (getQueryString("sTicket")) {
+                data.sTicket = getQueryString("sTicket");
+                setCookie('sTicket', data.sTicket);
+            }else if (getQueryString("access_token")) {
+                data.access_token = getQueryString("access_token");
+                setCookie('access_token', data.access_token);
+            } else if (getQueryString("ticket")) {
+                data.sTicket = getQueryString("ticket");
+                setCookie('ticket', data.sTicket);
+            }
+
+            $.ajax({
+                url: getApiUrl("index"),
+                type: "GET",
+                dataType: "json",
+                data: data,
+                error: function (XMLHttpRequest, textStatus) {
+                    //取消loading转圈
+                    $('#loadingSvg').hide();
+                    alert("Network loading failed");
+                },
+                success: function (result) {
+                    if (result.code != 0) {
+                        //取消loading转圈
+                        $('#loadingSvg').hide();
+                        //这里提示错误信息
+                       // alert("Failed to load");
+
+                        dialogFuc.show(GlobLAN['code'+result.code],1,function(){
+                            location.reload()
+                        })
+                        return false;
+                    }
+                    setCookie('openid', result.data.openid);
+                    setCookie('sign', result.data.sign);
+                    var extUrl = "openid=" + result.data.openid + "&sign=" + result.data.sign;
+                    if(getQueryString("openid") && getQueryString("sign")){
+                        extUrl = "openid=" + getQueryString("openid") + "&sign=" + getQueryString("sign");
+                    }
+                    toActUrl(extUrl);
+                }
+            });
+        </script>
+    </body>
+</html>

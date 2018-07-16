@@ -276,3 +276,16 @@ margin-left: 0.5rem !important;
     height: 2.5rem;
 }
 .logo-box img:nth-child(1){width: 4rem}
+
+
+
+@media screen and (max-width:320px){
+    .user-box{
+        margin-top: 0.8rem
+    }
+ 
+}
+@media screen and (min-width:370px){
+    
+    margin-top: 0.8rem
+    }

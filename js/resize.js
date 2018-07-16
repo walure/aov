@@ -4,7 +4,7 @@
     function setFont() {
         var html = document.documentElement;
         var k = 750;
-        if(location.pathname=='/login.html'){
+        if( location.pathname.indexOf('login.html')>-1){
             if(document.documentElement.clientWidth>=1000){
                 html.style.fontSize = '100px'
             }else{
