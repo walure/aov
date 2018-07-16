@@ -123,7 +123,7 @@ body{overflow: hidden; overflow-y: auto;
     background-size: 100%;
     padding-bottom: 0.4rem;
 }
-.common-hero .list{    min-height: 9rem; }
+.common-hero .list{    min-height: 9.5rem; }
 .common-hero .list li{
     margin: 0.2rem 0.6rem
 }

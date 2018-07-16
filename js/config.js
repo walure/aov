@@ -26,13 +26,13 @@ var GServiceType = {
     'nawzryhw':{
         'gameId':1134,
         'id':1134,
-        'login':'garena',
+        'login':'facebook',
         'api':'https://mrms.na.ngame.proximabeta.com'
     },
     'sawzryhw':{
         'gameId':1136,
         'id':1136,
-        'login':'garena',
+        'login':'facebook',
         'api':'https://mrms.sa.ngame.proximabeta.com'
     }
 };

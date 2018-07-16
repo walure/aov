@@ -82,6 +82,12 @@ function isLogin(){
         }
     })
     //设置facebook分享
+    $('.fb-set').each(function(){
+      if($(this).attr('content')){
+          $(this).attr('content',res[$(this).attr('data-id')])
+      }
+     })
+     
   }
 //设置icon logo
     function setLogo(lan){
@@ -101,6 +107,17 @@ function isLogin(){
         href='en'
       }
       $('.icon-head').attr('href',picUrl+'/title-icon/'+href+'.ico')
+
+      //设置分享图 背景图
+      var img =''
+      if(getQueryString('sServiceType') =='nawzryhw' || getQueryString('sServiceType') =='sawzryhw' || getQueryString('sServiceType') =='idwzryhw' ){
+        img='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/login-bg1.jpg'
+      }else{
+        img='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/login-bg.jpg'
+      }
+      $('.share-set-img').attr('content',img)
+      $('.login-bg-img').attr('style','background-image:url('+img+')')
+
     }
   function loadLan(){
     var lan = getQueryString('language') || 'zh';

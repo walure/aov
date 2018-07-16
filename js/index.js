@@ -18,7 +18,7 @@ function isMobile() {
          var that = this;
          window.fbAsyncInit = function() {
             FB.init({
-              appId      : '333894633812906',
+              appId      : '2033559596907192',
               xfbml      : true,
               version    : 'v3.0'
             });
@@ -42,7 +42,7 @@ function isMobile() {
         var tmpShareUrl =  curHref + ((curHref.indexOf('?') != -1) ? "&fbShareSucc=1" : '?fbShareSucc=1');
         statistic('fb')
         var fbUrl = "https://www.facebook.com/dialog/feed?" +
-            "app_id=333894633812906&display=touch" +
+            "app_id=2033559596907192&display=touch" +
             "&link=" + encodeURIComponent(shareURL) +
             "&redirect_uri=" + encodeURIComponent(tmpShareUrl);
             location.href = fbUrl;
@@ -205,7 +205,7 @@ var  dataHandle={
         $('#content .role_name').text(data.role_name);
         $('#content .grade_level').text(data.grade_level);
         $('#content .grade_icon').attr('src',data.grade_icon);
-        $('#content .register_year').text(data.register_year);
+        $('#content .register_year').text(data.register_year+'.'+data.register_mon+'.'+data.register_day);
         $('#content .days').text(data.days);
         $('#content .total_game_cnt').text(data.total_game_cnt);
 
@@ -319,7 +319,10 @@ var  dataHandle={
             index = 0
         }
         $('#user-box .user-item').eq(index).removeClass('hidden');
-     
+        if(getQueryString('sServiceType') =='nawzryhw' || getQueryString('sServiceType') =='sawzryhw' ){
+            $('#shareGarena').hide()
+        }
+       
     },
     //点赞动作
     fabulous:function(){
