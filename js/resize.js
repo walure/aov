@@ -5,8 +5,8 @@
         var html = document.documentElement;
         var k = 750;
         if( location.pathname.indexOf('login.html')>-1){
-            if(document.documentElement.clientWidth>=1000){
-                html.style.fontSize = '100px'
+            if(document.documentElement.clientWidth>=800){
+                html.style.fontSize = '80px'
             }else{
                 html.style.fontSize = html.clientWidth / k * 100 + "px";
             }

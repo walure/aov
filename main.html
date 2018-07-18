@@ -15,9 +15,9 @@
 
 
     <!-- <meta property="og:type"  class="fb-set" data-id="" content="类型" /> -->
-    <meta property="og:title"  class="fb-set" data-id="linkText" content="标题" />
-    <!-- <meta property="og:description"  class="fb-set" data-id="" content="描述" /> -->
-    <meta property="og:image" class="share-set-img" content="https://www.arenaofvalor.com/images/pc/bigicon.png">
+    <meta property="og:title"  class="fb-set" data-id="linkTitleText" content="" />
+    <meta property="og:description"  class="fb-set" data-id="linkText" content="" /> 
+    <meta property="og:image" class="share-set-img" content="">
 
     <link rel="icon" class="icon-head"  type="image/x-icon">
     <link rel="shortcut icon" class="icon-head"  type="image/x-icon">
@@ -59,55 +59,55 @@
            <img src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/4.jpg">
        </div>
        <div class="content" id="content">
-            <div class="user-name role_name" ></div>
-            <ul class="paly-info">
-                <li>
-                    <div class="title c-t text-set" data-id="personalRank" data-text="當前段位"></div>
-                    <div class="desc c-c grade_level"></div>
-                    <div class="ico"><img class="grade_icon" src=""></div>
-                </li>
-                <li>
-                    <div class="title c-t text-set" data-id="personalReg" data-text="注册时间 :"></div>
-                    <div class="desc c-c register_year"></div>
-                </li>
-                <li>
-                    <div class="title c-t text-set"  data-id="personalDays" data-text="距離今天 :"></div>
-                    <div class="desc c-c days"></div>
-                </li>
-                <li>
-                    <div class="title c-t text-set" data-id="personalMatches" data-text="累計戰鬥次數 :"></div>
-                    <div class="desc c-c total_game_cnt"></div>
-                </li>
-                <li>
-                    <div class="title c-t text-set" data-id="personalGlory" data-text="戰鬥榮耀 :">  </div>
-                    <div class="list-box c-c" id="honors-box">
-                        <div class="item">
-                            <p class="ico"><img class="honor_1_icon" src=""></p>
-                            <p class="honor_1"></p>
-                            <p class="honor_1_val"></p>
+           <div class="con-bg1">
+                <div class="user-name role_name" ></div>
+            
+                <ul class="paly-info">
+                    <li>
+                        <div class="title c-t text-set" data-id="personalRank" data-text="當前段位"></div>
+                        <div class="desc c-c grade_level"></div>
+                        <div class="ico"><img class="grade_icon" src=""></div>
+                    </li>
+                    <li>
+                        <div class="title c-t text-set" data-id="personalReg" data-text="注册时间 :"></div>
+                        <div class="desc c-c register_year"></div>
+                    </li>
+                    <li>
+                        <div class="title c-t text-set"  data-id="personalDays" data-text="距離今天 :"></div>
+                        <div class="desc c-c days"></div>
+                    </li>
+                    <li>
+                        <div class="title c-t text-set" data-id="personalMatches" data-text="累計戰鬥次數 :"></div>
+                        <div class="desc c-c total_game_cnt"></div>
+                    </li>
+                    <li>
+                        <div class="title c-t text-set" data-id="personalGlory" data-text="戰鬥榮耀 :">  </div>
+                        <div class="list-box c-c" id="honors-box">
+                            <div class="item">
+                                <p class="ico"><img class="honor_1_icon" src=""></p>
+                                <p class="honor_1"></p>
+                                <p class="honor_1_val"></p>
+                            </div>
+                            <div class="item">
+                                <p class="ico"><img class="honor_2_icon" src=""></p>
+                                <p class="honor_2"> </p>
+                                <p class="honor_2_val"></p>
+                            </div>
                         </div>
-                        <div class="item">
-                            <p class="ico"><img class="honor_2_icon" src=""></p>
-                            <p class="honor_2"> </p>
-                            <p class="honor_2_val"></p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-
+                    </li>
+                </ul>
+            </div>
             <!-- 常用英雄 -->
-            <div class="common-hero">
+            <div class="common-hero con-bg2">
                 <div class="title c-t text-set" data-id="heroFavorite" data-text="COMMON HERO"></div>
                 <ul class="list" id="hero-list">
-                    
-                   
-                           
+       
                 </ul>
               
             </div>
 
             <!--  图表 -->
-            <div class="chart-box">
+            <div class="chart-box con-bg3">
                     <div class="title"  ></div>
                 <div class="chart">
 
@@ -142,126 +142,127 @@
                 </div>
             </div>
 
-
-            <!-- 点赞登陆分享 -->
-            <div class="user-box" id="user-box">
-                <!-- 未登陆 -->
-                <div class="no-user user-item hidden">
-                        <div class="desc"><span class="c-t-1 text-set" data-id="shareOwned" data-text="已有"></span>   <span class="c vote">666</span> <span class="c-t-1 text-set" data-id="shareLike" data-text="位好友為妳點贊" ></span></div>
-                        <div class="mt45">
-                                <div class="btn yellow login-btn" id="loginAccount">
-                                    <div class="out"> <div></div></div>
-                                    <div class="text">
-                                        <i class="icon login"></i>
-                                        <i class="text-set" data-id="flgLogin"></i>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="tip " data-id="flgLike"></div>
-                        <div class="btn-group w60">
-                            <div class="btn brown login-btn" id="login-game">
-                                <div class="out"> <div></div></div>
-                                <div class="text">
-                                    <i class="icon go1"></i>
-                                    <i class="text-set" data-id="coverBtnOpen"></i>
-                                </div>
-                            </div>
-                            <div class="btn brown login-btn" id="downLoad-game">
-                                <div class="out"> <div></div></div>
-                                <div class="text">
-                                    <i class="icon down1"></i>
-                                    <i class="text-set" data-id="coverBtnDownload" ></i>
-                                </div>
-                            </div>
-                        </div>
-
-                </div>
-                <!-- 当前用户登陆 -->
-                <div class="curr-user user-item   hidden" >
-                       <div class="title c-t-1 text-set" data-id="shareThankTitle" data-text="感謝您對AOV的支持"></div>
-                       <div class="desc text-set" data-id="shareThanking">
-                          
-                       </div>
-                       <div class="btn-group w60">
-                            <div class="btn deep-blue login-btn" id="shareFacebook">
-                                <div class="out"> <div></div></div>
-                                <div class="text">
-                                    <i class="icon facebook"></i>
-                                    <i class="text-set" data-id="share"></i>
-                                </div>
-                            </div>
-                            <!-- <div class="btn deep-blue login-btn" id="shareGarena">
-                                <div class="out"> <div></div></div>
-                                <div class="text">
-                                    <i class="icon garna"></i>
-                                    <i class="text-set" data-id="share"></i>
-                                </div>
-                            </div> -->
-                            <div  id="js-copy"  data-clipboard-text="我是被复制的内容啊" class="btn deep-blue login-btn">
-                                    <div class="out"> <div></div></div>
-                                    <div class="text">
-                                        <i class="icon copy"></i>
-                                        <i class="text-set" data-id="copy"></i>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="zan-tip">
-                                <font class="text-set" data-id="shareOwned">已有</font> <span class="vote">666</span> <font class="text-set" data-id="shareLike">位好友為妳點贊</font>
-                        </div>
-
-                </div>
-                <!-- 其他用户登陆 -->
-                <div class="other-user user-item  hidden">
-                    <div>
-                            <div class="btn yellow login-btn" id="fabulous" style="display:none">
-                                    <div class="out"> <div></div></div>
-                                    <div class="text">
-                                        <i class="icon fabulous"></i>
-                                        <i class="text-set" data-id="flLike"></i>
+            <div class="con-bg4">
+                <!-- 点赞登陆分享 -->
+                <div class="user-box" id="user-box">
+                    <!-- 未登陆 -->
+                    <div class="no-user user-item hidden">
+                            <div class="desc"><span class="c-t-1 text-set" data-id="shareOwned" data-text="已有"></span>   <span class="c vote">666</span> <span class="c-t-1 text-set" data-id="shareLike" data-text="位好友為妳點贊" ></span></div>
+                            <div class="mt45">
+                                    <div class="btn yellow login-btn" id="loginAccount">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon login"></i>
+                                            <i class="text-set" data-id="flgLogin"></i>
+                                        </div>
                                     </div>
                             </div>
-                            <div class="btn gray login-btn" id="fabuloused" style="display:none">
-                                    <div class="out"> <div></div></div>
-                                    <div class="text">
-                                        <i class="icon login"></i>
-                                        <i>
-                                            <em class="text-set" data-id="flLiked"></em>
-                                            <em id="flLiked-num"></em>
-                                        </i>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="mt40">
-                            <div class="btn brown login-btn" id="seeSelf">
-                                    <div class="out"> <div></div></div>
-                                    <div class="text">
-                                        <i class="icon see"></i>
-                                        <i class="text-set" data-id="flViewOwn"></i>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="btn-group ">
-                            <div class="btn brown login-btn" id="login-game1">
+                            <div class="tip " data-id="flgLike"></div>
+                            <div class="btn-group w60">
+                                <div class="btn brown login-btn" id="login-game">
                                     <div class="out"> <div></div></div>
                                     <div class="text">
                                         <i class="icon go1"></i>
                                         <i class="text-set" data-id="coverBtnOpen"></i>
                                     </div>
                                 </div>
-                            <div class="btn brown login-btn" id="downLoad-game1">
+                                <div class="btn brown login-btn" id="downLoad-game">
                                     <div class="out"> <div></div></div>
                                     <div class="text">
                                         <i class="icon down1"></i>
-                                        <i class="text-set" data-id="flgDownload"></i>
+                                        <i class="text-set" data-id="coverBtnDownload" ></i>
                                     </div>
                                 </div>
-                        </div>
-                </div>
-            </div>
+                            </div>
 
-            <!-- logo -->
-            <div class="logo-box">
-                <img id="logo2" src=""/>
+                    </div>
+                    <!-- 当前用户登陆 -->
+                    <div class="curr-user user-item   hidden" >
+                        <div class="title c-t-1 text-set" data-id="shareThankTitle" data-text="感謝您對AOV的支持"></div>
+                        <div class="desc text-set" data-id="shareThanking">
+                            
+                        </div>
+                        <div class="btn-group w60">
+                                <div class="btn deep-blue login-btn" id="shareFacebook">
+                                    <div class="out"> <div></div></div>
+                                    <div class="text">
+                                        <i class="icon facebook"></i>
+                                        <i class="text-set" data-id="share"></i>
+                                    </div>
+                                </div>
+                                <!-- <div class="btn deep-blue login-btn" id="shareGarena">
+                                    <div class="out"> <div></div></div>
+                                    <div class="text">
+                                        <i class="icon garna"></i>
+                                        <i class="text-set" data-id="share"></i>
+                                    </div>
+                                </div> -->
+                                <div  id="js-copy"  data-clipboard-text="我是被复制的内容啊" class="btn deep-blue login-btn">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon copy"></i>
+                                            <i class="text-set" data-id="copy"></i>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="zan-tip">
+                                    <font class="text-set" data-id="shareOwned">已有</font> <span class="vote">666</span> <font class="text-set" data-id="shareLike">位好友為妳點贊</font>
+                            </div>
+
+                    </div>
+                    <!-- 其他用户登陆 -->
+                    <div class="other-user user-item  hidden">
+                        <div>
+                                <div class="btn yellow login-btn" id="fabulous" style="display:none">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon fabulous"></i>
+                                            <i class="text-set" data-id="flLike"></i>
+                                        </div>
+                                </div>
+                                <div class="btn gray login-btn" id="fabuloused" style="display:none">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon login"></i>
+                                            <i>
+                                                <em class="text-set" data-id="flLiked"></em>
+                                                <em id="flLiked-num"></em>
+                                            </i>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="mt40">
+                                <div class="btn brown login-btn" id="seeSelf">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon see"></i>
+                                            <i class="text-set" data-id="flViewOwn"></i>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="btn-group ">
+                                <div class="btn brown login-btn" id="login-game1">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon go1"></i>
+                                            <i class="text-set" data-id="coverBtnOpen"></i>
+                                        </div>
+                                    </div>
+                                <div class="btn brown login-btn" id="downLoad-game1">
+                                        <div class="out"> <div></div></div>
+                                        <div class="text">
+                                            <i class="icon down1"></i>
+                                            <i class="text-set" data-id="flgDownload"></i>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- logo -->
+                <div class="logo-box">
+                    <img id="logo2" src=""/>
+                </div>
             </div>
 
        </div>

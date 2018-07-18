@@ -55,7 +55,7 @@
         <div class="dialog" id="dialog-box" style="    z-index: 9999;" >
                 <div class="dia-con">
                     <div class="dia-box">
-                        <div class="npc"><img /src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/npc.png"></div>
+                        <div class="npc"><img src="http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/npc.png" ></div>
                         <div class="desc" id="dialog-box-text">
                             未查询您的账号
                         </div>
@@ -72,13 +72,13 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-
-        <script src="http://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script> 
+        <script src="https://ossweb-img.qq.com/images/js/zepto/zepto1.2.min.js"></script>
         <script src="js/config.js?v=4"></script>
         <script src="js/common.js?v=4"></script>
         <script>
-            
+        //    alert(window.location.search);
             //弹出层
             var dialogFuc={
                 show:function(txt,btnType,callback){
@@ -108,13 +108,12 @@
                 },
                 init:function(){
                     var that = this
-                    $('#dia-close').click(function(){
-                        that.hide()
-                    })
+                    // $('#dia-close').click(function(){
+                    //     that.hide()
+                    // })
                 }
             }
             dialogFuc.init();
-        
            
             //跳转至活动页面
             function toActUrl(extUrl) {
@@ -138,9 +137,10 @@
                 return GServiceType[st]['api'] + "/commonAct/a20180702AOV/" + name + ".php";
             }
 
-
             //票据换openid和sign
             var data = {action:"getOpenid",sServiceType:getQueryString("sServiceType"),areaid: getQueryString("areaid"),partition: getQueryString("partition"),platid: getQueryString("platid")};
+
+
             if (getQueryString("sTicket")) {
                 data.sTicket = getQueryString("sTicket");
                 setCookie('sTicket', data.sTicket);
@@ -151,7 +151,6 @@
                 data.sTicket = getQueryString("ticket");
                 setCookie('ticket', data.sTicket);
             }
-
             $.ajax({
                 url: getApiUrl("index"),
                 type: "GET",

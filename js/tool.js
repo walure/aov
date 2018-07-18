@@ -108,10 +108,37 @@
                 break;
         }
     }
+  
+    function goWeb(){
+        //跳转不同域名
+        var sServiceType = getQueryString('sServiceType');
+        var url = ''
+        if(sServiceType == 'twwzryhw'){
+            url = 'https://moba.garena.tw/'
+        }else if(sServiceType == 'thawzryhw'){
+            url = 'https://rov.in.th/'
+        }else if(sServiceType == 'vnwzryhw'){
+            url = 'https://lienquan.garena.vn/'
+        }else if(sServiceType == 'idwzryhw'){
+            url = 'https://aov.garena.co.id/main/'
+        }else{
+            url= 'http://www.arenaofvalor.com/'
+        }
+        location.href = url
+        
+    }
 
     $('#login-game,#login-game1').click(function(){
+        if(!isMobile()){
+            goWeb()
+            return
+        }
         startGame();
     })
     $('#downLoad-game,#downLoad-game1').click(function(){
+        if(!isMobile()){
+            goWeb()
+            return
+        }
         downloadGame();
     })

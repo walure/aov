@@ -34,20 +34,26 @@ function getQueryString(name) {
           return null;
       }
   }
-// 
+
+
+// 判断手机
+function isMobile() {
+  return /iphone|ios|android|mini|mobile|mobi|Nokia|Symbian|iPod|iPad|Windows\s+Phone|MQQBrowser|wp7|wp8|UCBrowser7|UCWEB|360\s+Aphone\s+Browser|blackberry/i.test(navigator.userAgent);
+}
 
 //统计接口
 function statistic(platform){
+    var ticket = getQueryString('ticket') || getCookie('ticket');
   $.ajax({
     type : 'get',
     url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/statistic.php',
     dataType : 'json',
     data : {
-       
+        sServiceType:getQueryString('sServiceType'),
         partition:getQueryString('partition'),
-        ticket:getQueryString('ticket'),
+        ticket:ticket,
         platform:platform,
-        access_token:getQueryString('access_token') 
+        access_token:getCookie('access_token')
     },
     success:function(res){
         console.log(res)
@@ -83,11 +89,8 @@ function isLogin(){
     })
     //设置facebook分享
     $('.fb-set').each(function(){
-      if($(this).attr('content')){
-          $(this).attr('content',res[$(this).attr('data-id')])
-      }
-     })
-     
+       $(this).attr('content',res[$(this).attr('data-id')])
+    })
   }
 //设置icon logo
     function setLogo(lan){
@@ -106,8 +109,8 @@ function isLogin(){
       }else{
         href='en'
       }
-      $('.icon-head').attr('href',picUrl+'/title-icon/'+href+'.ico')
 
+      $('.icon-head').attr('href',picUrl+'/title-icon/'+href+'.ico');
       //设置分享图 背景图
       var img =''
       if(getQueryString('sServiceType') =='nawzryhw' || getQueryString('sServiceType') =='sawzryhw' || getQueryString('sServiceType') =='idwzryhw' ){
@@ -117,6 +120,7 @@ function isLogin(){
       }
       $('.share-set-img').attr('content',img)
       $('.login-bg-img').attr('style','background-image:url('+img+')')
+
 
     }
   function loadLan(){

@@ -4,7 +4,7 @@
 
   } 
 body{overflow: hidden; overflow-y: auto;  
-      background: url(../image/info-bg/3.jpg) repeat-y;}
+     }
 #page403{
     display: none;
     position: fixed; 
@@ -18,7 +18,7 @@ body{overflow: hidden; overflow-y: auto;
 #page403 div{font-size: 0.3rem; margin-top: 1rem}
 #content{display: none}
 .warp{
-
+    background: #0e1b24;
     width: 100%;
     position: relative;
    
@@ -38,6 +38,26 @@ body{overflow: hidden; overflow-y: auto;
     z-index: 2;
     width: 100%;
     top:0;
+}
+.content .con-bg1{
+    background: url(http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/1.jpg) no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+.content .con-bg2{
+    background: url(http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/2.jpg) no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+.content .con-bg3{
+    background: url(http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.jpg) no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+}
+.content .con-bg4{
+    background: url(http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/4.jpg) repeat-y;
+    background-size: 100%;
+    overflow: hidden;
 }
 .content .user-name{
     min-width: 3.5rem;
@@ -101,6 +121,7 @@ body{overflow: hidden; overflow-y: auto;
 .content  .paly-info{
     margin-left:0.8rem;
     margin-top: 0.6rem;
+ 
 }
 .paly-info li{margin-bottom: 0.2rem}
 .paly-info li .title{margin-bottom: 0.05rem}
@@ -116,21 +137,21 @@ body{overflow: hidden; overflow-y: auto;
 
 
 /* 常用英雄 */
-.common-hero{ margin-top:1rem}
+.common-hero{ padding-top:1rem}
 .common-hero .title{
     font-size: 0.46rem; font-weight: bold; text-align: center;
     background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/title-line.png') no-repeat bottom;
     background-size: 100%;
     padding-bottom: 0.4rem;
 }
-.common-hero .list{    min-height: 9.5rem; }
+.common-hero .list{     }
 .common-hero .list li{
     margin: 0.2rem 0.6rem
 }
 .common-hero .list li {display: flex;
     border-bottom:  1px solid rgba(139, 113, 63, 0.35); 
-    padding-bottom: 0.1rem;
-    padding-top: 0.1rem;
+    padding-bottom: 0.05rem;
+    padding-top: 0.05rem;
 }
 .common-hero .list li:last-child{border:none}
 .common-hero .list li .hero-img img{width:2rem;    height: 2.6rem; }
@@ -178,7 +199,7 @@ margin-left: 0.5rem !important;
 
 /* 图表 */
 
-.chart-box{ margin-top: 1rem; width: 100%;}
+.chart-box{ padding-top: 1rem; width: 100%;    margin-top: -1rem;}
 
 .chart-box .title{
     background: url('http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/title-line.png') no-repeat bottom;
@@ -186,7 +207,7 @@ margin-left: 0.5rem !important;
     width: 100%;
     height: 0.5rem
 }
-.chart-box .chart{height: 7.4rem}
+.chart-box .chart{height: 9.5rem}
 .detail_box{margin-top: 0.3rem}
 .detail_canvas{width:4.29rem;height:4.1rem;position:relative; margin: auto}
 .detail_bg{width:3.5rem;height:3.5rem;margin:0 auto 0;}
@@ -224,7 +245,8 @@ margin-left: 0.5rem !important;
 /* 点赞登陆分享  */
 
 .user-box{
-    margin-top:1.6rem;
+
+    overflow: hidden;
   
 }
 .user-box .hidden{display: none}

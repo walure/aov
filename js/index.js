@@ -1,6 +1,3 @@
-function isMobile() {
-    return /iphone|ios|android|mini|mobile|mobi|Nokia|Symbian|iPod|iPad|Windows\s+Phone|MQQBrowser|wp7|wp8|UCBrowser7|UCWEB|360\s+Aphone\s+Browser|blackberry/i.test(navigator.userAgent);
-}
 
  var facebookObj ={
      setShareData:function(){
@@ -213,13 +210,7 @@ var  dataHandle={
         $('#content .days').text(data.days);
         $('#content .total_game_cnt').text(data.total_game_cnt);
 
-        $('#content .honor_1_icon').attr('src',data.honor_1_icon);
-        $('#content .honor_1').text(data.honor_1);
-        $('#content .honor_1_val').text(data.honor_1_val);
-        
-        $('#content .honor_2_icon').attr('src',data.honor_2_icon);
-        $('#content .honor_2').text(data.honor_2);
-        $('#content .honor_2_val').text(data.honor_2_val);
+     
         //战斗荣誉
         var html = '';
         for(var i=0,o;o=data.honors[i];i++){
@@ -229,7 +220,13 @@ var  dataHandle={
                     '<p class="honor_1_val">'+o.honor_val+'</p>'+
                 '</div>'
         }
+        if(data.honors.length==0){
+            html=' <div class="item">'+
+                '<p class="honor_1_val">'+GlobLAN['tipsNonHornor']+'</p>'+
+            '</div>'
+        }
         $('#honors-box').html(html)
+
 
         //常用英雄
          html = '';
@@ -254,6 +251,9 @@ var  dataHandle={
                 '</li>'
         }
         $('#hero-list').html(html);
+        if(data.heroes.length==0){
+            $('.con-bg2').hide()
+        }
         setText(GlobLAN);
 
         // 图表
@@ -308,6 +308,10 @@ var  dataHandle={
             console.log(e);
         });
 
+        
+    //facebook 分享
+    facebookObj.init('#shareFacebook')
+
     },
     isLoad:function(){
         var index = 999
@@ -339,9 +343,10 @@ var  dataHandle={
                 url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/vote.php',
                 dataType : 'json',
                 data : {
-                    iOpenid:getCookie('openid'),
+                    iOpenid:getQueryString('openid'),
                     language:getQueryString('language'),
-                    ticket:getQueryString('ticket'),
+                    ticket:getCookie('ticket'),
+                    access_token:getCookie('access_token'),
                     partition:getQueryString('partition'),
                     from:getQueryString('from'),
                     sServiceType:getQueryString('sServiceType')
@@ -352,7 +357,8 @@ var  dataHandle={
                         $('#fabulous').hide()
                         $('#fabuloused').show()
                         var num = parseInt($('#fabulous').attr('vote'))
-                        $('#flLiked-num').html(num++)
+                        num = num+1
+                        $('#flLiked-num').html(num)
                     }
                 },
                 error:function(res){
@@ -390,19 +396,6 @@ dataHandle.init()
 
 
 
-
-$('#login').click(function(){
-    console.log(1)
-    
-})
-$('#client').click(function(){
-
-    if(isMobile()) {
-        window.location.href = "移动端专题地址"+location.search;
-    }else{
-        window.location.href = "https://www.arenaofvalor.com/"
-    }
-})
 
 
 
@@ -489,6 +482,3 @@ function initChart(data) {
 
 
 
-
-//facebook 分享
-facebookObj.init('#shareFacebook')
