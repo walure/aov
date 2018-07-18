@@ -207,7 +207,7 @@ margin-left: 0.5rem !important;
     width: 100%;
     height: 0.5rem
 }
-.chart-box .chart{height: 9.5rem}
+.chart-box .chart{}
 .detail_box{margin-top: 0.3rem}
 .detail_canvas{width:4.29rem;height:4.1rem;position:relative; margin: auto}
 .detail_bg{width:3.5rem;height:3.5rem;margin:0 auto 0;}

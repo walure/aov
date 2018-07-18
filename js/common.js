@@ -53,6 +53,7 @@ function statistic(platform){
         partition:getQueryString('partition'),
         ticket:ticket,
         platform:platform,
+        from:platform,
         access_token:getCookie('access_token')
     },
     success:function(res){
