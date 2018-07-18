@@ -96,6 +96,9 @@ function isLogin(){
     function setLogo(lan){
       var lan = getQueryString('language') || 'TW';
       lan=lan.toUpperCase()
+      if(lan=='S_EN'){
+        lan='EN'
+      }
       var picUrl='https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu'
       $('#logo').attr('src',picUrl+'/logo-lan/LOGO_'+lan+'.png')          
       $('#logo2').attr('src',picUrl+'/logo-lan/ProPic_'+lan+'.png')          
