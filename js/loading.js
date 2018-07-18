@@ -4,7 +4,7 @@ function loading(options){
 	this.options=options || {};
 	//this.complete 完成
 	_this=this;
-	var picUrl='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu';
+	var picUrl='https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu';
 	this.imgList=[
 				'/info-bg/1.jpg',				
 				'/info-bg/2.jpg',				

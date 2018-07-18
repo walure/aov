@@ -53,7 +53,6 @@ function statistic(platform){
         partition:getQueryString('partition'),
         ticket:ticket,
         platform:platform,
-        from:platform,
         access_token:getCookie('access_token')
     },
     success:function(res){
@@ -97,7 +96,7 @@ function isLogin(){
     function setLogo(lan){
       var lan = getQueryString('language') || 'TW';
       lan=lan.toUpperCase()
-      var picUrl='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu'
+      var picUrl='https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu'
       $('#logo').attr('src',picUrl+'/logo-lan/LOGO_'+lan+'.png')          
       $('#logo2').attr('src',picUrl+'/logo-lan/ProPic_'+lan+'.png')          
       $('#logo729').attr('src',picUrl+'/logo-lan/729LOGO_'+lan+'.png')      
@@ -115,9 +114,9 @@ function isLogin(){
       //设置分享图 背景图
       var img =''
       if(getQueryString('sServiceType') =='nawzryhw' || getQueryString('sServiceType') =='sawzryhw' || getQueryString('sServiceType') =='idwzryhw' ){
-        img='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/login-bg1.jpg'
+        img='https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/login-bg1.jpg'
       }else{
-        img='http://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/login-bg.jpg'
+        img='https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/login-bg.jpg'
       }
       $('.share-set-img').attr('content',img)
       $('.login-bg-img').attr('style','background-image:url('+img+')')

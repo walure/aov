@@ -223,7 +223,7 @@ var  dataHandle={
         if(data.honors.length==0){
             html=' <div class="item">'+
                 '<p class="honor_1_val">'+GlobLAN['tipsNonHornor']+'</p>'+
-            '</div>'
+            '</div>';
         }
         $('#honors-box').html(html)
 
@@ -241,7 +241,7 @@ var  dataHandle={
                         '</div>'+
                         '<div class="txt">'+
                                 '<span class="c-t text-set" data-id="heroMatches" data-text="場次"></span> '+
-                                '<span class="c-c">232</span> '+
+                                '<span class="c-c">'+o.game_cnt+'</span> '+
                         '</div>'+
                         '<div class="txt">'+
                                 '<span class="c-t text-set" data-id="heroWinRate" data-text="勝率"></span> '+
@@ -253,6 +253,8 @@ var  dataHandle={
         $('#hero-list').html(html);
         if(data.heroes.length==0){
             $('.con-bg2').hide()
+            $('.con-bg3').hide()
+            $('.con-bg4').addClass('con-bg5').removeClass('con-bg4')
         }
         setText(GlobLAN);
 
@@ -289,7 +291,8 @@ var  dataHandle={
         }
 
         // 设置复制
-        $('#js-copy').attr('data-clipboard-text',location.href)
+       
+        $('#js-copy').attr('data-clipboard-text', location.href.replace(/(^|&)from=([^&]*)(&|$)/, '&from=copy'))
         var btn = document.getElementById('js-copy');
         var clipboard = new Clipboard(btn);//实例化
 
