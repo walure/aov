@@ -199,3 +199,26 @@ html{font-size:100px;}
 .dialog .select-area-box{
     width: 80%; margin:0.7rem auto
 }
+
+/* 复制弹框 */
+.dialog.copySuccess{
+ 
+}
+.dialog.copySuccess .dia-close{
+    display: none;
+}
+.dialog.copySuccess .dia-con{
+    width: 60%;
+}
+.dialog.copySuccess .dia-con .dia-box .npc{
+    display: none
+}
+.dialog.copySuccess .dia-con .dia-box{
+    min-height: 2.25rem
+}
+.dialog.copySuccess .dia-con .dia-box .desc{
+    margin-top:0.5rem
+}
+.dialog.copySuccess .dia-con .dia-box .btn-box{
+    bottom: 0.2rem
+}

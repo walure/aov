@@ -63,6 +63,7 @@
 //弹出层
 var dialogFuc={
     show:function(txt,btnType,callback){
+        $('#dialog-box').removeClass('copySuccess')
         //0 确定 1 刷新 
         if(txt){
             $('#dialog-box-text').html(txt)
@@ -75,6 +76,15 @@ var dialogFuc={
             $('#dia-submit .text').html(
                 '<i class="icon refresh"></i><i>'+GlobLAN['tipsRefresh']+'</i>'
             )
+        }else if(btnType=='copy'){
+            $('#dialog-box').addClass('copySuccess')
+            $('#dia-submit .text').html(
+                '<i class="icon success"></i><i>'+GlobLAN['tipsConfirm']+'</i>'
+            )
+            setTimeout(function(){
+                that.hide();
+                $('#dialog-box').removeClass('copySuccess')
+            },3000)
         }
         var that = this;
         $('#dialog-box').addClass('show')
@@ -292,7 +302,7 @@ var  dataHandle={
 
         // 设置复制
        
-        $('#js-copy').attr('data-clipboard-text', location.href.replace(/(^|&)from=([^&]*)(&|$)/, '&from=copy'))
+        $('#js-copy').attr('data-clipboard-text',location.href.replace(/from=app/, '&from=copy'))
         var btn = document.getElementById('js-copy');
         var clipboard = new Clipboard(btn);//实例化
 
@@ -303,7 +313,7 @@ var  dataHandle={
                 window.copyNum=true
                 statistic('copy')
             }
-           //dialogFuc.show('复制成功')
+           dialogFuc.show(GlobLAN['copySuccess'],'copy')
         });
 
         //复制失败执行的回调，可选

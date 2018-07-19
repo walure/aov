@@ -110,7 +110,7 @@ body{overflow: hidden; overflow-y: auto;
    
 }
 .c-t::after,.c-t-1::after {  
-    content: attr(data-text);
+    /* content: attr(data-text); */
     color: #ffdb8a;
     position: absolute;
     width: 100%;
