@@ -7,11 +7,11 @@
         this.setShareData()
         this.FB='';
         var that = this;
-        loadLan(function(){
-            that.load(function(){
-                that.fevents(id) 
-            })
+        
+        that.load(function(){
+            that.fevents(id) 
         })
+
      },
      load:function(callback){
         //333894633812906 2033559596907192
@@ -170,8 +170,10 @@ var  dataHandle={
                 access_token:getQueryString('access_token') || getCookie('access_token')
             },
             success:function(res){
-                console.log(res)
+               
                 document.getElementById("loading").style.display='none';
+    
+                console.log(res)
                 if(res.code===0){
                     if(res.data.role_count==2){
                         $('#dialog-box-select').addClass('show');
@@ -183,7 +185,7 @@ var  dataHandle={
                     dialogFuc.show(GlobLAN['code'+res.code],0)
                 }
                 
-                if(res.code==997){
+                if(res.code=='-997'){
                     document.getElementById("page403").style.display='block';
                 }else{
                     document.getElementById("content").style.display='block';
@@ -312,7 +314,7 @@ var  dataHandle={
 
         // 设置复制
        
-        $('#js-copy').attr('data-clipboard-text',location.href.replace(/(^|&)from=([^&]*)&\b/, '&from=copy&'))
+        $('#js-copy').attr('data-clipboard-text',location.href.replace(/(^|&)from=([^&]*)(&|$)/, '&from=copy&'))
         var btn = document.getElementById('js-copy');
         var clipboard = new Clipboard(btn);//实例化
 
@@ -418,9 +420,9 @@ var  dataHandle={
 
 }
 
-dataHandle.init()
-
-
+loadLan(function(){
+    dataHandle.init()
+})
 
 
 

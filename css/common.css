@@ -184,7 +184,8 @@ html{font-size:100px;}
 
 .dialog .dia-con .dia-box .desc{
     text-align: center; color: #c6b9a1;
-    font-size: 0.24rem; margin-top: 1.2rem;
+    font-size: 0.24rem; margin: 1.2rem auto;
+    width: 70%;
 }
 .dialog .dia-con .dia-box .btn-box{
     position: absolute;
@@ -202,23 +203,49 @@ html{font-size:100px;}
 
 /* 复制弹框 */
 .dialog.copySuccess{
- 
+    background: rgba(0,0,0,0);
 }
 .dialog.copySuccess .dia-close{
     display: none;
 }
 .dialog.copySuccess .dia-con{
-    width: 60%;
+    width: 55%;
+    padding: 0.02rem;
 }
 .dialog.copySuccess .dia-con .dia-box .npc{
     display: none
 }
 .dialog.copySuccess .dia-con .dia-box{
-    min-height: 2.25rem
+    min-height: 0.25rem
 }
 .dialog.copySuccess .dia-con .dia-box .desc{
-    margin-top:0.5rem
+    margin:0.3rem auto;
+    width: 100%;
 }
 .dialog.copySuccess .dia-con .dia-box .btn-box{
-    bottom: 0.2rem
+    display: none;
+    bottom: 0.2rem;
+    width: 100%;
 }
+
+/* 活动过期 */
+#page403{
+    display: none;
+    position: fixed; 
+    z-index: 9999;
+    background: #fff;
+    width: 100%; 
+    height: 100%;
+    text-align: center;
+
+}
+#page403 div{
+    position: absolute;
+    width: 90%;
+    left:5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.3rem;  
+ }

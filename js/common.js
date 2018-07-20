@@ -170,5 +170,5 @@ function isLogin(){
           var authLoginUrl = 'https://www.arenaofvalor.com/act/oauth1.0/index.html?game=' + GServiceType[serviceType]['id'] + '&redirect=' + encodeURIComponent(rediretUrl);
          location.href = authLoginUrl
       }
-   })
+   }) 
   }
