@@ -126,17 +126,23 @@ function isLogin(){
 
 
     }
-  function loadLan(){
+  function loadLan(callback){
     var lan = getQueryString('language') || 'zh';
     $.getJSON('language/wap/'+lan.toLowerCase()+'.json',function(res){
         console.log(res);
         GlobLAN = res;
         setText(res)
+        if(callback){
+          callback()
+        }
     });
 
     
   }
-  loadLan()
+  if(location.pathname.indexOf('login.html')>-1){
+    loadLan()
+  }
+
   setLogo()
 
   //登录
@@ -161,7 +167,7 @@ function isLogin(){
           location.href = authLoginUrl
       } else if (GServiceType[serviceType]['login'] == "facebook") {
           //显示facebook登录
-          var authLoginUrl = 'https://www.arenaofvalor.com/act/oauth/index.html?game=' + GServiceType[serviceType]['id'] + '&redirect=' + encodeURIComponent(rediretUrl);
+          var authLoginUrl = 'https://www.arenaofvalor.com/act/oauth1.0/index.html?game=' + GServiceType[serviceType]['id'] + '&redirect=' + encodeURIComponent(rediretUrl);
          location.href = authLoginUrl
       }
    })

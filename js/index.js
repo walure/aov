@@ -7,12 +7,16 @@
         this.setShareData()
         this.FB='';
         var that = this;
-        this.load(function(){
-            that.fevents(id) 
+        loadLan(function(){
+            that.load(function(){
+                that.fevents(id) 
+            })
         })
      },
      load:function(callback){
+        //333894633812906 2033559596907192
          var that = this;
+       //  $('#facebookId').attr('content','333894633812906')
          window.fbAsyncInit = function() {
             FB.init({
               appId      : '2033559596907192',
@@ -41,9 +45,13 @@
             window.FBshareNum=true
             statistic('fb')
         }
+        
         var fbUrl = "https://www.facebook.com/dialog/feed?" +
             "app_id=2033559596907192&display=touch" +
             "&link=" + encodeURIComponent(shareURL) +
+            "&title=" + encodeURIComponent(GlobLAN['linkTitleText']) +
+            "&picture=" + encodeURIComponent($('.share-set-img').attr('content')) +
+            "&description=" + encodeURIComponent(GlobLAN['linkText']) +
             "&redirect_uri=" + encodeURIComponent(tmpShareUrl);
             location.href = fbUrl;
     },
@@ -156,6 +164,8 @@ var  dataHandle={
                 action:'getUserData',
                 from:getQueryString('from'),
                 iOpenid:getQueryString('from')=='mine' ? '' : getQueryString('openid'),
+                debug:getQueryString('debug'),
+                debug_index:getQueryString('debug_index'),
                 sign:getQueryString('sign'),
                 access_token:getQueryString('access_token') || getCookie('access_token')
             },
@@ -302,7 +312,7 @@ var  dataHandle={
 
         // 设置复制
        
-        $('#js-copy').attr('data-clipboard-text',location.href.replace(/from=app/, '&from=copy'))
+        $('#js-copy').attr('data-clipboard-text',location.href.replace(/(^|&)from=([^&]*)&\b/, '&from=copy&'))
         var btn = document.getElementById('js-copy');
         var clipboard = new Clipboard(btn);//实例化
 
@@ -323,7 +333,10 @@ var  dataHandle={
 
         
     //facebook 分享
+   
     facebookObj.init('#shareFacebook')
+  
+    
 
     },
     isLoad:function(){
@@ -395,6 +408,7 @@ var  dataHandle={
                         '&platid='+getQueryString('platid')+
                         '&action='+getQueryString('action')+
                         '&openid='+getCookie('openid')+
+                        '&sign='+getCookie('sign')+
                         '&from=mine'
 
             location.href=location.origin+location.pathname+parm
