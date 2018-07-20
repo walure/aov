@@ -40,7 +40,7 @@ body{overflow: hidden; overflow-y: auto;
     overflow: hidden;
 }
 .content .con-bg3{
-    background: url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.jpg) no-repeat bottom;
+    background: url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.png) no-repeat bottom;
     background-size: 100%;
     overflow: hidden;
     padding-bottom: 1.5rem;
@@ -201,7 +201,9 @@ margin-left: 0.5rem !important;
 
 /* 图表 */
 
-.chart-box{ padding-top: 1.5rem; width: 100%;    margin-top: -1rem;}
+.chart-box{ padding-top: 2.04rem;
+    width: 100%;
+    margin-top: -1.5rem;}
 
 .chart-box .title{
     background: url('https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/title-line.png') no-repeat bottom;

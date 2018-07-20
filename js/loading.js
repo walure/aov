@@ -52,7 +52,7 @@ loading.prototype={
 		// 	this.loadingNow++;
 		// }
 		this.loadingNow =Math.floor(this.percentage/_this.imgList.length)*100;
-		if(this.loadingNow==100){
+		if(this.loadingNow>=100){
 			this.loadingNow = 99
 		}
 		document.getElementById("load").innerHTML=this.loadingNow+'%';
