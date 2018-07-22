@@ -13,13 +13,13 @@ var GServiceType = {
     },
     'thawzryhw':{
         'gameId':1138,
-        'id':100054,
+        'id':100055,
         'login':'garena',
         'api':'https://external.mrms.garena.in.th'
     },
     'vnwzryhw':{
         'gameId':1137,
-        'id':100055,
+        'id':100054,
         'login':'garena',
         'api':'https://external.mrms.garena.vn'
     },

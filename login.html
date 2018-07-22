@@ -112,8 +112,24 @@
     <script src="js/common.js"></script> 
     <script src="js/tool.js"></script> 
     <script>
+        
         var now = new Date().getTime();
-        var end = new Date('2018.9.1').getTime();
+        var end = '';
+        switch(GServiceType[getQueryString('GServiceType')]){
+            case 'idwzryhw':
+                end = '2018.8.3-23:59:59'
+            break;
+            case 'twwzryhw':
+                end = '2018.8.4-23:59:59'
+            break;
+            case 'thawzryhw':
+            case 'vnwzryhw':
+            case 'nawzryhw':
+            case 'sawzryhw':
+                end = '2018.7.31-23:59:59'
+            break;
+        }
+        end = new Date(end).getTime()
         if(now>end){
             $('#page403').show()
         }
