@@ -2,21 +2,28 @@
     font-family:"HelveticaNeueLT Pro 45 Lt";
     src: url('HELVETICANEUELTPRO-LT.OTF');
 
-  } 
-body{overflow: hidden; overflow-y: auto;  
+  }
+html{
+    background: #132a3e;
+}   
+body{overflow: hidden; overflow-y: auto;
+    background:url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.png) repeat-y;
+    background-size: 100%;  
      }
 
 #content{display: none}
 .warp{
     background: #0e1b24;
     width: 100%;
-    position: relative;
-   
+    position: absolute;
+    min-height: 100%;
+   overflow: hidden;
 }
 .warp .bg{
     width: 100%;
-
+    overflow: hidden;
     top: 0;
+    position: absolute;
 }
 .warp .bg img{
     width: 100%;
@@ -24,12 +31,18 @@ body{overflow: hidden; overflow-y: auto;
 }
 
 .warp .content{
-    position: absolute;
+    position: relative;
+    overflow: hidden;
     z-index: 2;
     width: 100%;
     top:0;
-}
-.content .con-bg1{
+    /* background:url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/1.jpg) 0 0 no-repeat,
+                     url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/2.jpg) 0 24% no-repeat,
+                     url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/3.png) 0 0 no-repeat,
+                     url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/4.png) 0 0 no-repeat;
+    background-size: 100%; */
+                    }
+/* .content .con-bg1{
     background: url(https://overseas-img.qq.com/images/bodproximabeta/act/a20190702AOV_eu/info-bg/1.jpg) no-repeat bottom;
     background-size: 100%;
     overflow: hidden;
@@ -55,7 +68,8 @@ body{overflow: hidden; overflow-y: auto;
     background-size: 100%;
     overflow: hidden;
     padding-top: 3.5rem;
-}
+} */
+
 .content .user-name{
     min-width: 3.5rem;
     display: inline-block;
@@ -87,6 +101,10 @@ body{overflow: hidden; overflow-y: auto;
     -webkit-mask-image: -webkit-gradient(linear, 1 0, 0 bottom, from(#fffbf3), to(rgba(208, 169, 98, 0.15)));
   
 }
+.c-t{
+    padding-left:0.2rem;
+    margin-left:-0.2rem;
+}
 .c-t::before{
     content: '';
     display: inline-block;
@@ -96,7 +114,7 @@ body{overflow: hidden; overflow-y: auto;
     background-size: 100%;
     position: absolute;
     top: 0.15rem;
-    left: -0.2rem;
+    left: 0rem;
    
 }
 .c-t::after,.c-t-1::after {  
@@ -122,7 +140,7 @@ body{overflow: hidden; overflow-y: auto;
 }
 .paly-info li{margin-bottom: 0.1rem}
 .paly-info li:nth-child(1) .grade_level{
-    width: 1.6rem; text-align: center;
+    width: 1.6rem; text-align: center;    white-space: nowrap;
 }
 .paly-info li .title{margin-bottom: 0.05rem}
 .paly-info .ico{}
@@ -166,6 +184,7 @@ margin-bottom: 0.2rem;
 .common-hero .list li .use-info .txt span:nth-child(2){  font-size: 0.3rem}
 .common-hero .list li .use-info .txt .ico-s{position: relative;
 padding-left: 0.4rem;
+line-height: 0.6rem;
 margin-left: 0.5rem !important;
 }
 .common-hero .list li .use-info .txt .ico-s::after{
@@ -247,12 +266,18 @@ margin-left: 0.5rem !important;
 
 
 /* 点赞登陆分享  */
-
-.user-box{
-
-    overflow: hidden;
-  
+.hero-icon1{
+    margin-top: 0rem;
 }
+.hero-icon1 img{
+    width: 100%;
+}
+.user-box{
+    overflow: hidden;  
+    margin-top: -0.5rem;
+}
+
+
 .user-box .hidden{display: none}
 .user-box .no-user{
  text-align: center;

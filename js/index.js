@@ -1,10 +1,5 @@
-
- var facebookObj ={
-     setShareData:function(){
-
-     },
+ var facebookObj = {
      init:function(id){
-        this.setShareData()
         this.FB='';
         var that = this;
         
@@ -38,33 +33,53 @@
             callback()
         }
      },
-     FBshare(shareURL) {
-        var curHref = window.location.href;
+     FBshare:function(shareURL) {
+
+        var curHref = shareURL;
         var tmpShareUrl =  curHref + ((curHref.indexOf('?') != -1) ? "&fbShareSucc=1" : '?fbShareSucc=1');
         if(!window.FBshareNum){
             window.FBshareNum=true
             statistic('fb')
         }
+
         
-        var fbUrl = "https://www.facebook.com/dialog/feed?" +
-            "app_id=2033559596907192&display=touch" +
-            "&link=" + encodeURIComponent(shareURL) +
-            "&title=" + encodeURIComponent(GlobLAN['linkTitleText']) +
-            "&picture=" + encodeURIComponent($('.share-set-img').attr('content')) +
-            "&description=" + encodeURIComponent(GlobLAN['linkText']) +
-            "&redirect_uri=" + encodeURIComponent(tmpShareUrl);
-            location.href = fbUrl;
+        if(getQueryString('from')=='app'){
+            var fbUrl = "https://www.facebook.com/dialog/share?" +
+                "app_id=2033559596907192&display=touch" +
+                "&href=" + encodeURIComponent(shareURL) +
+                // "&title=" + encodeURIComponent(GlobLAN['linkTitleText']) +
+                // "&picture=" + encodeURIComponent($('.share-set-img').attr('content')) +
+                // "&description=" + encodeURIComponent(GlobLAN['linkText']) +
+                "&redirect_uri=" + encodeURIComponent(tmpShareUrl);
+                location.href = fbUrl;
+        }else{
+            FB.ui({
+                method: 'share',
+                mobile_iframe: true,
+                href: shareURL,
+              }, function(response){});
+
+        }
     },
      fevents:function(id){
          var that = this;
         $(id).click(function(){
-            console.log(999)
-            that.FBshare(location.href);
+            console.log(999);
+            var parm = '?sServiceType='+getQueryString('sServiceType')+
+            '&language='+getQueryString('language')+
+            '&areaid='+getQueryString('areaid')+
+            '&partition='+getQueryString('partition')+
+            '&platid='+getQueryString('platid')+
+            '&sign='+getQueryString('sign')+
+            '&openid='+getQueryString('openid')+
+            '&from=fb'
+
+        
+            //that.FBshare(location.href.replace(/(^|&)from=([^&]*)(&|$)/, '&from=fb&'));
+            that.FBshare(location.origin+location.pathname+parm);
         })
      }
  }
-
-
 
 
 
@@ -92,7 +107,7 @@ var dialogFuc={
             setTimeout(function(){
                 that.hide();
                 $('#dialog-box').removeClass('copySuccess')
-            },3000)
+            },1500)
         }
         var that = this;
         $('#dialog-box').addClass('show')
@@ -113,6 +128,7 @@ var dialogFuc={
     }
 }
 dialogFuc.init();
+
 
 //选区控制
 var dialogSelectFuc={
@@ -150,56 +166,64 @@ var  dataHandle={
     },
     loadUser:function(){
         var that = this;
-        $.ajax({
-            type : 'get',
-            url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/index.php',
-            dataType : 'json',
-            data : {
-                sServiceType:getQueryString('sServiceType'),
-                language:getQueryString('language'),
-                ticket:getQueryString('ticket') || getCookie('ticket'),
-                areaid:getQueryString('areaid'),
-                partition:getQueryString('partition'),
-                platid:getQueryString('platid'),
-                action:'getUserData',
-                from:getQueryString('from'),
-                iOpenid:getQueryString('from')=='mine' ? '' : getQueryString('openid'),
-                debug:getQueryString('debug'),
-                debug_index:getQueryString('debug_index'),
-                sign:getQueryString('sign'),
-                access_token:getQueryString('access_token') || getCookie('access_token')
-            },
-            success:function(res){
-               
-                document.getElementById("loading").style.display='none';
-    
-                console.log(res)
-                if(res.code===0){
-                    if(res.data.role_count==2){
-                        $('#dialog-box-select').addClass('show');
-                        that.selectArea()
-                        return
+        
+        
+            $.ajax({
+                type : 'get',
+                url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/index.php',
+                dataType : 'json',
+                data : {
+                    sServiceType:getQueryString('sServiceType'),
+                    language:getQueryString('language'),
+                    ticket:getQueryString('ticket') || getCookie('ticket'),
+                    areaid:getQueryString('areaid'),
+                    partition:getQueryString('partition'),
+                    platid:getQueryString('platid'),
+                    action:'getUserData',
+                    from:getQueryString('from'),
+                    iOpenid:getQueryString('openid'),
+                    debug:getQueryString('debug'),
+                    debug_index:getQueryString('debug_index'),
+                    sign:getQueryString('sign'),
+                    access_token:getQueryString('access_token') || getCookie('access_token')
+                },
+                success:function(res){
+                    
+                    
+                   
+                    document.getElementById("loading").style.display='none';
+        
+                    console.log(res)
+                    if(res.code===0){
+                        if(res.data.role_count==2){
+                            $('#dialog-box-select').addClass('show');
+                            that.selectArea()
+                            return
+                        }
+                        that.innerText(res.data)
+                    }else{
+                        dialogFuc.show(GlobLAN['code'+res.code],0)
                     }
-                    that.innerText(res.data)
-                }else{
-                    dialogFuc.show(GlobLAN['code'+res.code],0)
-                }
+                    
+                    if(res.code=='-997'){
+                        document.getElementById("page403").style.display='block';
+                    }else{
+                        document.getElementById("content").style.display='block';
+                        
+                       
                 
-                if(res.code=='-997'){
-                    document.getElementById("page403").style.display='block';
-                }else{
-                    document.getElementById("content").style.display='block';
-                    
-                }
-                    
-                    
-              
+                    }
+                       
                
-            },
-            error:function(res){
-                dialogFuc.show(GlobLAN['tipsLag'],1)
-            }
-        });
+                        
+                
+                
+                },
+                error:function(res){
+                    dialogFuc.show(GlobLAN['tipsLag'],1)
+                }
+            });
+ 
     },
     //如果t服
     selectArea:function(){
@@ -227,7 +251,11 @@ var  dataHandle={
     innerText:function(data){
         $('#content .role_name').text(data.role_name);
         $('#content .grade_level').text(data.grade_level);
-        $('#content .grade_icon').attr('src',data.grade_icon);
+        if(!data.grade_icon){
+            $('#content .grade_icon').hide()
+        }else{
+            $('#content .grade_icon').attr('src',data.grade_icon);
+        }
         $('#content .register_year').text(data.register_year+'.'+data.register_mon+'.'+data.register_day);
         $('#content .days').text(data.days);
         $('#content .total_game_cnt').text(data.total_game_cnt);
@@ -292,6 +320,7 @@ var  dataHandle={
         initChart(datas);
         $(window).resize(function(){
             GChart1.resize();
+            
         });
 
         //
@@ -307,6 +336,7 @@ var  dataHandle={
         //是否已点赞
         if(data.isVote==0){
             $('#fabulous').show()
+            $('#fabulous .text-set').html($('#fabulous .text-set').html()+' '+data.vote)
         }else{
             $('#fabuloused').show();
             $('#flLiked-num').html(data.vote)
@@ -334,6 +364,12 @@ var  dataHandle={
         });
 
         
+        
+       
+        
+
+
+    
     //facebook 分享
    
     facebookObj.init('#shareFacebook')
@@ -420,11 +456,10 @@ var  dataHandle={
 
 }
 
+
 loadLan(function(){
     dataHandle.init()
 })
-
-
 
 
 

@@ -113,23 +113,33 @@
     <script src="js/tool.js"></script> 
     <script>
         
-        var now = new Date().getTime();
-        var end = '';
-        switch(GServiceType[getQueryString('GServiceType')]){
-            case 'idwzryhw':
-                end = '2018.8.3-23:59:59'
-            break;
-            case 'twwzryhw':
-                end = '2018.8.4-23:59:59'
-            break;
-            case 'thawzryhw':
-            case 'vnwzryhw':
-            case 'nawzryhw':
-            case 'sawzryhw':
-                end = '2018.7.31-23:59:59'
-            break;
+        function getTimeByTimeZone(timeZone){
+            var d = new Date();
+            var localTime = d.getTime();
+            var localOffset=d.getTimezoneOffset()*60000; //获得当地时间偏移的毫秒数,这里可能是负数
+            var utc = localTime + localOffset; //utc即GMT时间
+            var zoneTime = utc + (3600000*timeZone);  //本地对应的毫秒数
+            return zoneTime;
         }
-        end = new Date(end).getTime()
+            var now = getTimeByTimeZone(8);
+            var end = 1532361600000;
+            switch(GServiceType[getQueryString('GServiceType')]){
+                case 'idwzryhw':
+                    end = 1533311999000;   //'2018.8.3-23:59:59'
+                    break;
+                case 'twwzryhw':
+                    end = 1533398399000;      //'2018.8.4-23:59:59'
+                    break;
+                case 'thawzryhw':
+                case 'vnwzryhw':
+                case 'nawzryhw':
+                case 'sawzryhw':
+                    end = 1533052799000;    //'2018.7.31-23:59:59'
+                    break;
+            }
+        // = new Date(end).getTime()
+        console.log(now,end)
+        console.log(new Date(now),new Date(end))
         if(now>end){
             $('#page403').show()
         }

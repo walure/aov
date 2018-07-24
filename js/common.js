@@ -12,6 +12,7 @@ function getQueryString(name) {
     }
     return ''; 
   }
+
   var cookiePre = 'a0702aov_';
 //设置cookie
   function setCookie(name, value)
@@ -44,17 +45,29 @@ function isMobile() {
 //统计接口
 function statistic(platform){
     var ticket = getQueryString('ticket') || getCookie('ticket');
+    var openid = '';
+    var sign = '';
+    var from = getQueryString('from');
+    if (from === 'app') {
+        openid = getQueryString('openid');
+        sign = getQueryString('sign');
+    }
+
+    var data = {
+            sServiceType:getQueryString('sServiceType'),
+            partition:getQueryString('partition'),
+            ticket:ticket,
+            platform:platform,
+            access_token:getCookie('access_token'),
+            iOpenid:openid,
+            sign:sign
+        };
+
   $.ajax({
     type : 'get',
     url : GServiceType[getQueryString('sServiceType')]['api']+'/commonAct/a20180702AOV/statistic.php',
     dataType : 'json',
-    data : {
-        sServiceType:getQueryString('sServiceType'),
-        partition:getQueryString('partition'),
-        ticket:ticket,
-        platform:platform,
-        access_token:getCookie('access_token')
-    },
+    data : data,
     success:function(res){
         console.log(res)
         if(res.code===0){
@@ -126,19 +139,23 @@ function isLogin(){
 
 
     }
+    
   function loadLan(callback){
     var lan = getQueryString('language') || 'zh';
-    $.getJSON('language/wap/'+lan.toLowerCase()+'.json',function(res){
-        console.log(res);
-        GlobLAN = res;
-        setText(res)
-        if(callback){
-          callback()
-        }
-    });
+     
+      $.getJSON('language/wap/'+lan.toLowerCase()+'.json',function(res){
+          console.log(res);
+          GlobLAN = res;
+          setText(res)
+          if(callback){
+            callback()
+          }
+      });
+
 
     
   }
+  
   if(location.pathname.indexOf('login.html')>-1){
     loadLan()
   }
@@ -172,3 +189,4 @@ function isLogin(){
       }
    }) 
   }
+ 

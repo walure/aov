@@ -7,8 +7,10 @@
         if( location.pathname.indexOf('login.html')>-1){
             if(document.documentElement.clientWidth>=800){
                 html.style.fontSize = '80px'
+                document.getElementsByClassName('login-bg-img')[0].style.height='18rem'
             }else{
                 html.style.fontSize = html.clientWidth / k * 100 + "px";
+                document.getElementsByClassName('login-bg-img')[0].style.height='100%'
             }
         }else{
             html.style.fontSize = html.clientWidth / k * 100 + "px";

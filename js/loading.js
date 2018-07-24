@@ -47,30 +47,27 @@ loading.prototype={
 	
 	},
 	timeShow:function(){
-		//console.log(_this.percentage)
-		// if(this.loadingNow<=this.total){
-		// 	this.loadingNow++;
-		// }
-		this.loadingNow =Math.floor(this.percentage/_this.imgList.length)*100;
-		if(this.loadingNow>=100){
-			this.loadingNow = 99
+
+		try {
+			this.loadingNow =Math.floor(this.percentage/_this.imgList.length)*100;
+			if(this.loadingNow>=100){
+				this.loadingNow = 99
+			}
+			document.getElementById("load").innerHTML=this.loadingNow+'%';
+			document.getElementById("loading-ico").style.left=this.loadingNow+'%';
+			document.getElementById("vague-box").style.width=this.loadingNow+'%';
+			
+			if(_this.imgList.length=this.percentage){
+				setTimeout(function(){
+					console.log('加载完成')
+					
+				},200)
+				return;
+			}
+
+		} catch (error) {
+				alert('78:'+JSON.stringify(error))
 		}
-		document.getElementById("load").innerHTML=this.loadingNow+'%';
-		document.getElementById("loading-ico").style.left=this.loadingNow+'%';
-		document.getElementById("vague-box").style.width=this.loadingNow+'%';
-		
-		if(_this.imgList.length=this.percentage){
-			setTimeout(function(){
-				console.log('加载完成')
-				//document.getElementById("loading").style.display='none';
-				//document.getElementById("content").style.display='block';
-				//if(_this.options.complete) _this.options.complete();
-			},200)
-			return;
-		}
-		//setTimeout(function(){
-		//	_this.timeShow();
-		//},1000/30)
 	}
 }
 

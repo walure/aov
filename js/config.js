@@ -3,7 +3,7 @@ var GServiceType = {
         'gameId':1181,
         'id':1000507,
         'login':'garena',
-        'api':'https://external.mrms.garena.co.id',
+        'api':'https://external.mrms.garena.co.id'
     },
     'twwzryhw':{
         'gameId':1130,
