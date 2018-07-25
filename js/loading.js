@@ -10,6 +10,7 @@ function loading(options){
 				'/info-bg/2.jpg',				
 				'/info-bg/3.jpg',				
 				'/info-bg/4.jpg',				
+				'/info-bg/hero-icon.png',				
 			
 				'/bg-1.png',				
 				'/close.png',				
@@ -30,7 +31,8 @@ function loading(options){
 	
 }
 loading.prototype={
-	init:function(){
+	init:function(callback){
+		this.callback = callback
 		this.imgLoad();
 	},
 	imgLoad:function(){
@@ -47,23 +49,19 @@ loading.prototype={
 	
 	},
 	timeShow:function(){
-
+		
 		try {
-			this.loadingNow =Math.floor(this.percentage/_this.imgList.length)*100;
+			this.loadingNow =Math.floor(this.percentage/_this.imgList.length*100)
 			if(this.loadingNow>=100){
-				this.loadingNow = 99
+				this.loadingNow = 99;
+				if(this.callback) this.callback()
 			}
+			//console.log(this.loadingNow,this.percentage,_this.imgList.length)
 			document.getElementById("load").innerHTML=this.loadingNow+'%';
 			document.getElementById("loading-ico").style.left=this.loadingNow+'%';
 			document.getElementById("vague-box").style.width=this.loadingNow+'%';
 			
-			if(_this.imgList.length=this.percentage){
-				setTimeout(function(){
-					console.log('加载完成')
-					
-				},200)
-				return;
-			}
+			
 
 		} catch (error) {
 				alert('78:'+JSON.stringify(error))
@@ -74,5 +72,4 @@ loading.prototype={
 var ImgLoading=new loading({
 	complete:function(){
    }});	
-ImgLoading.init();  
- 
+

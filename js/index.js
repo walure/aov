@@ -35,30 +35,32 @@
      },
      FBshare:function(shareURL) {
 
-        var curHref = shareURL;
+        var curHref = location.href;
         var tmpShareUrl =  curHref + ((curHref.indexOf('?') != -1) ? "&fbShareSucc=1" : '?fbShareSucc=1');
         if(!window.FBshareNum){
             window.FBshareNum=true
             statistic('fb')
         }
 
+        var u = navigator.userAgent;
+		
+        if(u.indexOf('Android') > -1 && u.indexOf('FBAV') > -1){
+			 FB.ui({
+                method: 'share',
+                mobile_iframe: true,
+                href: shareURL,
+              }, function(response){});
         
-        if(getQueryString('from')=='app'){
-            var fbUrl = "https://www.facebook.com/dialog/share?" +
+        }else{
+			    var fbUrl = "https://www.facebook.com/dialog/feed?" +
                 "app_id=2033559596907192&display=touch" +
-                "&href=" + encodeURIComponent(shareURL) +
+                "&link=" + encodeURIComponent(shareURL) +
                 // "&title=" + encodeURIComponent(GlobLAN['linkTitleText']) +
                 // "&picture=" + encodeURIComponent($('.share-set-img').attr('content')) +
                 // "&description=" + encodeURIComponent(GlobLAN['linkText']) +
                 "&redirect_uri=" + encodeURIComponent(tmpShareUrl);
                 location.href = fbUrl;
-        }else{
-            FB.ui({
-                method: 'share',
-                mobile_iframe: true,
-                href: shareURL,
-              }, function(response){});
-
+           
         }
     },
      fevents:function(id){
@@ -236,7 +238,6 @@ var  dataHandle={
             }
             var parm = '?sServiceType='+getQueryString('sServiceType')+
             '&language='+getQueryString('language')+
-            '&ticket='+getQueryString('ticket')+
             '&areaid='+getQueryString('areaid')+
             '&partition='+partition+
             '&platid='+getQueryString('platid')+
@@ -343,8 +344,11 @@ var  dataHandle={
         }
 
         // 设置复制
-       
-        $('#js-copy').attr('data-clipboard-text',location.href.replace(/(^|&)from=([^&]*)(&|$)/, '&from=copy&'))
+		var url = location.href.replace(/(^|&)from=([^&]*)(&|$)/, '&from=copy&');
+		if(url.substring(url.length-1)=='&'){
+			url = url.substring(url.length-1,'')
+		}
+        $('#js-copy').attr('data-clipboard-text',url)
         var btn = document.getElementById('js-copy');
         var clipboard = new Clipboard(btn);//实例化
 
@@ -440,7 +444,6 @@ var  dataHandle={
             }
              var parm = '?sServiceType='+getQueryString('sServiceType')+
                         '&language='+getQueryString('language')+
-                        '&ticket='+getQueryString('ticket')+
                         '&areaid='+getQueryString('areaid')+
                         '&partition='+partition+
                         '&platid='+getQueryString('platid')+
@@ -458,7 +461,10 @@ var  dataHandle={
 
 
 loadLan(function(){
-    dataHandle.init()
+	ImgLoading.init(function(){
+		dataHandle.init()
+	}); 
+    
 })
 
 

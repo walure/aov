@@ -8,7 +8,11 @@
             if(document.documentElement.clientWidth>=800){
                 html.style.fontSize = '80px'
                 document.getElementsByClassName('login-bg-img')[0].style.height='18rem'
-            }else{
+            }else if(document.documentElement.clientWidth>=document.documentElement.clientHeight){
+				html.style.fontSize = html.clientWidth / k * 100 + "px";
+				 document.getElementsByClassName('login-bg-img')[0].style.height=document.documentElement.clientWidth/k *10*1.5+'rem'
+			}
+			else{
                 html.style.fontSize = html.clientWidth / k * 100 + "px";
                 document.getElementsByClassName('login-bg-img')[0].style.height='100%'
             }
