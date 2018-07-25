@@ -1,4 +1,16 @@
- var facebookObj = {
+if(document.documentElement.clientWidth>document.documentElement.clientHeight){
+  $('#dialog-box').addClass('hp')              
+}else{
+    $('#dialog-box').addClass('sp')  
+}
+window.onresize=function(){
+    if(document.documentElement.clientWidth>document.documentElement.clientHeight){
+        $('#dialog-box').addClass('hp').removeClass('sp')              
+      }else{
+          $('#dialog-box').addClass('sp').removeClass('hp')  
+      } 
+}
+var facebookObj = {
      init:function(id){
         this.FB='';
         var that = this;
@@ -261,7 +273,16 @@ var  dataHandle={
         $('#content .days').text(data.days);
         $('#content .total_game_cnt').text(data.total_game_cnt);
 
-     
+        //提示
+        var registerTime =parseInt(data.register_year*10000)+parseInt(data.register_mon*100)+parseInt(data.register_day*1)
+        var endTime = 20180630
+       
+        
+        if(endTime < registerTime && data.is_current_user == '1'){
+            
+            dialogFuc.show(GlobLAN['tipsTime'],0)
+        }
+        console.log(registerTime,endTime)
         //战斗荣誉
         var html = '';
         for(var i=0,o;o=data.honors[i];i++){
@@ -281,6 +302,7 @@ var  dataHandle={
 
         //常用英雄
          html = '';
+         var sServiceType = getQueryString('sServiceType')
         for(var i=0,o;o=data.heroes[i];i++){
             html+='<li class="item">'+
                     '<div class="hero-img"><img src="'+o.hero_icon+'"></div>'+
@@ -288,7 +310,8 @@ var  dataHandle={
                         '<div class="name c-t-1" data-text="'+o.hero_name+'">'+o.hero_name+'</div>'+
                         '<div class="txt">'+
                             '<span class="c-t text-set" data-id="heroProficiency" data-text="熟練度"></span> '+
-                            '<span class="c-c ico-s" ><span style="background-image:url('+o.profession_icon+')"></span>'+o.proficiency+'</span> '+
+                            '<span class="c-c ico-s '+(sServiceType == 'thawzryhw' ? 'noAfter' : '') +'" ><span style="background-image:url('+o.profession_icon+')"></span>'+
+                            (sServiceType == 'thawzryhw' ? '' : o.proficiency)+'</span> '+
                         '</div>'+
                         '<div class="txt">'+
                                 '<span class="c-t text-set" data-id="heroMatches" data-text="場次"></span> '+

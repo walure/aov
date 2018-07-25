@@ -217,7 +217,12 @@ margin-left: 0.5rem !important;
     z-index: 2;
 }
 
-
+.common-hero .list li .use-info .txt  .noAfter span{
+    top: -0.5rem;
+}
+.common-hero .list li .use-info .txt .noAfter::after{
+    display: none
+}
 /* 图表 */
 
 .chart-box{ padding-top: 2.04rem;

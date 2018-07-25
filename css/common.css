@@ -184,7 +184,7 @@ html{font-size:100px;}
 
 .dialog .dia-con .dia-box .desc{
     text-align: center; color: #c6b9a1;
-    font-size: 0.24rem; margin: 1.2rem auto;
+    font-size: 0.24rem; margin: 1.2rem  auto 1.6rem;
     width: 70%;
 }
 .dialog .dia-con .dia-box .btn-box{
@@ -200,6 +200,53 @@ html{font-size:100px;}
 .dialog .select-area-box{
     width: 80%; margin:0.7rem auto
 }
+
+/* 复制横屏 */
+
+.dialog.hp  .dia-con{
+    background: rgba(2, 3, 5, 0.82);
+    border:1px solid rgba(132,131,110,0.45);
+    padding: 0.1rem;
+    width: 80%;
+    margin: auto;
+    /* transform: scale(0.5); */
+    zoom: 0.5;
+}
+.dialog.hp  .dia-con .dia-box{
+    border:1px solid #5c451e;
+    min-height: 2.6rem;
+    position: relative;
+}
+.dialog.hp  .dia-con .dia-box .npc{
+    display: none;
+    position: absolute;
+    width: 1.8rem;
+    left: -13%;
+    top: 0%;
+}
+.dialog.hp  .dia-con .dia-box .npc img{width: 100%}
+
+.dialog.hp  .dia-con .dia-box .desc{
+    text-align: center;
+    color: #c6b9a1;
+    font-size: 0.24rem;
+    margin: 0.6rem  auto 0.8rem;
+    width: 70%;
+}
+.dialog.hp  .dia-con .dia-box .btn-box{
+    position: absolute;
+    bottom: 0.1rem;
+    width: 100%;
+    text-align: center;
+}
+.dialog.hp  .dia-close{position: absolute;right: -5%;top:-8%;width:0.45rem;transform: scale(0.8);}
+.dialog.hp  .dia-close img{width: 100%;}
+
+.dialog.hp  .select-area-box{
+    width: 80%; margin:0.7rem auto
+}
+
+
 
 /* 复制弹框 */
 .dialog.copySuccess{
@@ -227,6 +274,9 @@ html{font-size:100px;}
     bottom: 0.2rem;
     width: 100%;
 }
+
+
+
 
 /* 活动过期 */
 #page403{
